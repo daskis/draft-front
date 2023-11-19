@@ -1,12 +1,13 @@
-.heading {
-  color: var(--primary);
-  display: flex;
-  align-items: start;
+.maxWidth {
+  max-width: 100% !important;
+}
+.wrapper {
   position: relative;
-  font-size: 20px;
   & .tip {
-    position: relative;
+    position: absolute;
     z-index: 1;
+    top: 0;
+    right: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,4 +35,12 @@
 
     }
   }
+}
+.heading {
+  color: var(--primary);
+  display: flex;
+  align-items: start;
+  width: 100%;
+  position: relative;
+  font-size: 20px;
 }

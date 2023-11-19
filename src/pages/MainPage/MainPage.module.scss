@@ -36,7 +36,10 @@
   flex-direction: column;
   gap: 15px;
 }
-
+.fixedWidth {
+  max-width: 300px !important;
+  padding-right: 40px !important;
+}
 .titleWrapper {
   width: 50%;
   display: flex;
@@ -55,7 +58,6 @@
 .title {
   padding-left: 40px;
   font-size: 34px !important;
-  max-width: 70%;
 
   & .titleSwitch {
     display: flex;
@@ -131,7 +133,7 @@
 }
 
 .thirdForm {
-  gap: 40px !important;
+  gap: 30px !important;
 
   & .clarified {
     opacity: 50%;
@@ -155,13 +157,15 @@
   & .titleSwitch {
     margin-top: 20px;
     max-width: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 
     & p {
       font-size: 13px;
     }
   }
 }
-
 .form {
   padding: 30px 40px 50px;
   display: flex;
@@ -172,7 +176,6 @@
     gap: 20px;
     justify-content: start;
     text-transform: uppercase;
-    max-width: 40%;
   }
 
   &Column {

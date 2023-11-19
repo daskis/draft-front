@@ -73,7 +73,7 @@ export const ResultPage = () => {
                     <div className={cls.links}>
                         <a
                             className={cls.downloadLink}
-                            href={"../../assets/doc.docx"} download>
+                            href="http://localhost:4000/download" download>
                             <Download/>
                             <PTag>
                                 загрузить подробный сценарий

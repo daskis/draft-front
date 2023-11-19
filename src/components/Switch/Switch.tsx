@@ -1,19 +1,35 @@
 import cn from "classnames"
-import {useState} from "react";
+import { useState, useEffect } from "react";
 import cls from "./Switch.module.scss"
 
-export const Switch = () => {
-    const [isOpen, setIsOpen] = useState<boolean>(false)
+interface SwitchProps {
+    value: boolean;
+    onChange: (value: boolean) => void;
+}
+
+export const Switch: React.FC<SwitchProps> = ({ value, onChange }) => {
+    const [isOpen, setIsOpen] = useState<boolean>(value);
+
+    useEffect(() => {
+        setIsOpen(value);
+    }, [value]);
+
+    const handleToggle = () => {
+        const newState = !isOpen;
+        setIsOpen(newState);
+        onChange(newState);
+    };
+
     return (
         <div
-            onClick={() => setIsOpen(prevState => !prevState)}
+            onClick={handleToggle}
             className={cn(cls.wrapper, {
-            [cls.open]: isOpen
-        })}>
+                [cls.open]: isOpen
+            })}
+        >
             <span className={cn(cls.dot, {
                 [cls.switch]: isOpen
             })}/>
         </div>
     );
 };
-

@@ -4,12 +4,14 @@ interface IInputProps extends Omit<DetailedHTMLProps<InputHTMLAttributes<HTMLInp
     label: string;
     value: string;
     onChange: (value: string) => void;
+    half?: boolean
 }
 
 export const Input: React.FC<IInputProps> = (
     {
         label,
         value,
+        half,
         onChange,
         ...props
     }) => {
@@ -20,6 +22,7 @@ export const Input: React.FC<IInputProps> = (
     return (
         <div className={cls.wrapper}>
             <input
+                style={half ? {opacity: "50%"} : {}}
                 maxLength={5}
                 className={cls.input}
                 type="text"

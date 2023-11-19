@@ -58,30 +58,31 @@ export const MainPage = () => {
         associativity: "",
         creativity: ""
     })
-
+    const [firstSwitch, setFirstSwitch] = useState(false)
+    const [secondSwitch, setSecondSwitch] = useState(false)
     const settlementTypeItems = [
         {
-            label: "Город столичного статуса",
+            label: "город столичного статуса",
             value: "1",
         },
         {
-            label: "Центр макрорегиона",
+            label: "центр макрорегиона",
             value: "2",
         },
         {
-            label: "Региональный центр",
+            label: "региональный центр",
             value: "3",
         },
         {
-            label: "Обособленный город",
+            label: "обособленный город",
             value: "4",
         },
         {
-            label: "Город-спутник",
+            label: "город-спутник",
             value: "5",
         },
         {
-            label: "Поселок/село/деревня",
+            label: "поселок/село/деревня",
             value: "6",
         },
     ]
@@ -133,52 +134,61 @@ export const MainPage = () => {
             value: "7",
         },
     ]
+    const [socialValues, setSocialValues] = useState({
+        business: "",
+        capital: "",
+        amount: "",
+        budgetRevenue: "",
+        tourismBudget: "",
+        cost: ""
+    })
+
 
     const secondaryFunctionItems = [
         {
-            label: "Промышленный (обработка)",
+            label: "промышленный (обработка)",
             value: "1",
         },
         {
-            label: "Добыча ресурсов",
+            label: "добыча ресурсов",
             value: "2",
         },
         {
-            label: "Торговый",
+            label: "торговый",
             value: "3",
         },
         {
-            label: "Туристско-рекреационный",
+            label: "туристско-рекреационный",
             value: "4",
         },
         {
-            label: "Наукоград",
+            label: "наукоград",
             value: "5",
         },
         {
-            label: "Транспортный узел",
+            label: "транспортный узел",
             value: "6",
         },
     ]
     const tendentionItems = [
         {
-            label: "Расширяющийся",
+            label: "расширяющийся",
             value: "1",
         },
         {
-            label: "Сжимающийся",
+            label: "сжимающийся",
             value: "2",
         },
         {
-            label: "Стабилизирующийся",
+            label: "стабилизирующийся",
             value: "3",
         },
         {
-            label: "Новый населенный пункт",
+            label: "новый населенный пункт",
             value: "4",
         },
         {
-            label: "Агломерационное поглощение соседних населенных пунктов",
+            label: "агломерационное поглощение соседних населенных пунктов",
             value: "5",
         },
     ]
@@ -203,12 +213,12 @@ export const MainPage = () => {
                     <div className={cls.formLine}>
                         <HTag
                             tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}>
+                            className={cn(cls.formTitle, cls.fixedWidth)}>
                             Тип населенного пункта
                         </HTag>
                         <Select
                             items={settlementTypeItems}
-                            placeholder={settlementTypeItems[0]?.label || ''}
+                            placeholder={"Выберите значение"}
                             onSelect={(value) => {
                                 setFirstForm((prevState) => ({
                                     ...prevState,
@@ -220,7 +230,7 @@ export const MainPage = () => {
                     <div className={cls.formLine}>
                         <HTag
                             tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}>
+                            className={cn(cls.formTitle, cls.fixedWidth)}>
                             Площадь населенного пункта, кв.км
                         </HTag>
                         <Input onChange={(text) => {
@@ -233,7 +243,7 @@ export const MainPage = () => {
                     <div className={cls.formLine}>
                         <HTag
                             tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}>
+                            className={cn(cls.formTitle, cls.fixedWidth)}>
                             Площадь рассматриваемой территории
                         </HTag>
                         <Input onChange={(text) => {
@@ -246,7 +256,7 @@ export const MainPage = () => {
                     <div className={cls.formLine}>
                         <HTag
                             tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}>
+                            className={cn(cls.formTitle, cls.fixedWidth)}>
                             Отношение площади территории к площади населенного пункта
                         </HTag>
                         <Input
@@ -261,12 +271,12 @@ export const MainPage = () => {
                     <div className={cls.formLine}>
                         <HTag
                             tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}>
+                            className={cn(cls.formTitle, cls.fixedWidth)}>
                             Период основания населенного пункта
                         </HTag>
                         <Select
                             items={periodItems}
-                            placeholder={periodItems[0]?.label || ''}
+                            placeholder={"Выберите значение"}
                             onSelect={(value) => {
                                 setFirstForm((prevState) => ({
                                     ...prevState,
@@ -278,12 +288,12 @@ export const MainPage = () => {
                     <div className={cls.formLine}>
                         <HTag
                             tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}>
+                            className={cn(cls.formTitle, cls.fixedWidth)}>
                             Основная функция населенного пункта
                         </HTag>
                         <Select
                             items={mainFunctionItems}
-                            placeholder={mainFunctionItems[0]?.label || ''}
+                            placeholder={"Выберите значение"}
                             onSelect={(value) => {
                                 setFirstForm((prevState) => ({
                                     ...prevState,
@@ -295,12 +305,12 @@ export const MainPage = () => {
                     <div className={cls.formLine}>
                         <HTag
                             tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}>
+                            className={cn(cls.formTitle, cls.fixedWidth)}>
                             Дополнительно связываемая функция /-ии
                         </HTag>
                         <Select
                             items={secondaryFunctionItems}
-                            placeholder={secondaryFunctionItems[0]?.label || ''}
+                            placeholder={"Выберите значение"}
                             onSelect={(value) => {
                                 setFirstForm((prevState) => ({
                                     ...prevState,
@@ -312,11 +322,11 @@ export const MainPage = () => {
                     <div className={cls.formLine}>
                         <HTag
                             tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}>
+                            className={cn(cls.formTitle, cls.fixedWidth)}>
                             Тенденция пространственного развития населенного пункта </HTag>
                         <Select
                             items={tendentionItems}
-                            placeholder={tendentionItems[0]?.label || ''}
+                            placeholder={"Выберите значение"}
                             onSelect={(value) => {
                                 setFirstForm((prevState) => ({
                                     ...prevState,
@@ -326,12 +336,17 @@ export const MainPage = () => {
                         />
                     </div>
                     <div className={cls.formLine}>
-                        <HTag
-                            tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}>
-                            Бюджет муниципального образования за прошлый период (общий)
-                        </HTag>
-                        <Input onChange={(text) => {
+                        <div className={cls.titleWrapper}>
+                            <HTag
+                                tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                                className={cn(cls.formTitle, cls.fixedWidth)}>
+                                Бюджет муниципального образования за прошлый период
+                            </HTag>
+                            <PTag>
+                                общий
+                            </PTag>
+                        </div>
+                        <Input style={{marginLeft: "-60px"}} onChange={(text) => {
                             setFirstForm((prevState) => ({
                                 ...prevState,
                                 budget: text
@@ -341,8 +356,8 @@ export const MainPage = () => {
                     <div className={cls.formLine}>
                         <HTag
                             tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}>
-                            Присутствие рассматриваемой территории или сопряженной к ней в действующих программах
+                            className={cn(cls.formTitle, cls.fixedWidth)}>
+                            Присутствие рассматриваемой территории в действующих программах
                             социально-экономического развития
                         </HTag>
                         <div className={cls.radioWrapper}>
@@ -387,7 +402,7 @@ export const MainPage = () => {
                         <div className={cls.titleWrapper}>
                             <HTag
                                 tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                                className={cls.formTitle}>
+                                className={cn(cls.formTitle, cls.fixedWidth)}>
                                 Культурные коды. Наследие. Истоки, слои непроявленные смыслы
 
                             </HTag>
@@ -406,7 +421,7 @@ export const MainPage = () => {
                         <div className={cls.titleWrapper}>
                             <HTag
                                 tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                                className={cls.formTitle}>
+                                className={cn(cls.formTitle, cls.fixedWidth)}>
                                 Архитектурно-художественная и эстетическая выразительность застройки и
                                 окружающей среда
                             </HTag>
@@ -421,21 +436,21 @@ export const MainPage = () => {
                             }))
                         }} value={secondForm.expressiveness} label={""}/>
                     </div>
-                    <HTag className={cn(cls.formTitle, cls.titleTip)}>
+                    <HTag className={cn(cls.formTitle, cls.titleTip)} maxWidth={true}>
                         ниже выберите один из наиболее подходящих вариантов для оценки территории
                     </HTag>
                     <div className={cls.formLine}>
                         <div className={cls.titleWrapper}>
                             <HTag
                                 tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                                className={cls.formTitle}>
+                                className={cn(cls.formTitle, cls.fixedWidth)}>
                                 Подлинность застройки
                             </HTag>
                             <PTag>
-                                (способность отличительных характеристик адекватно и
+                                способность отличительных характеристик адекватно и
                                 достоверно
                                 выражать его ценность, форма и замысел, материалы и вещества, местоположение и
-                                окружение)
+                                окружение
                             </PTag>
                         </div>
                         <div className={cls.radioWrapper}>
@@ -515,8 +530,8 @@ export const MainPage = () => {
                                 Целостность застройки
                             </HTag>
                             <PTag>
-                                (мера единства и неповрежденности объекта и его
-                                окружения)
+                                мера единства и неповрежденности объекта и его
+                                окружения
                             </PTag>
                         </div>
                         <div className={cls.radioWrapper}>
@@ -740,7 +755,7 @@ export const MainPage = () => {
                     <div className={cls.formLine}>
                         <HTag
                             tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}>
+                            className={cn(cls.formTitle, cls.fixedWidth)}>
                             Вид на перспективы исторических улиц
                         </HTag>
                         <div className={cls.radioWrapper}>
@@ -821,20 +836,22 @@ export const MainPage = () => {
                         <span className={cls.line}></span>
                     </HTag>
                     <div className={cls.titleSwitch}>
-                        <Switch/>
+                        <Switch value={firstSwitch} onChange={(value) => {
+                            setFirstSwitch(value)
+                        }}/>
                         <PTag>
-                            автоматическая подгрузка данных из открытых источников
+                            экспертная оценка и ручные корректировки
                         </PTag>
                     </div>
                 </div>
                 <div className={cn(cls.form, cls.formRadio)}>
-                    <HTag className={cn(cls.formTitle, cls.titleTip)}>
+                    <HTag className={cn(cls.formTitle, cls.titleTip)} maxWidth={true}>
                         ниже выберите один из наиболее подходящих вариантов для оценки территории
                     </HTag>
                     <div className={cls.formLine}>
                         <HTag
                             tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}>
+                            className={cn(cls.formTitle, cls.fixedWidth)}>
                             Вид разрешенного использования
                         </HTag>
                         <div className={cls.radioWrapper}>
@@ -910,6 +927,81 @@ export const MainPage = () => {
                             tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
                             className={cls.formTitle}
                         >
+                            Транспортная доступность - общественный транспорт
+                        </HTag>
+                        <div className={cls.radioWrapper}>
+                            <Radio
+                                id="transportsProximity"
+                                name="transportsProximity"
+                                value="1"
+                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                    setThirdForm(prevState => ({
+                                        ...prevState,
+                                        transportsProximity: event.target.value
+                                    }))
+                                }}
+                                checked={thirdForm.transportsProximity === '1'}
+                                text="Наличие остановки общественного транспорта в радиусе 15 минут - 1 балл"
+                            />
+                            <Radio
+                                id="transportsProximity2"
+                                name="transportsProximity"
+                                value="2"
+                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                    setThirdForm(prevState => ({
+                                        ...prevState,
+                                        transportsProximity: event.target.value
+                                    }))
+                                }}
+                                checked={thirdForm.transportsProximity === '2'}
+                                text="Наличие остановки общественного транспорта в радиусе 5 минут - 2 балла "
+                            />
+                            <Radio
+                                id="transportsProximity3"
+                                name="transportsProximity"
+                                value="3"
+                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                    setThirdForm(prevState => ({
+                                        ...prevState,
+                                        transportsProximity: event.target.value
+                                    }))
+                                }}
+                                checked={thirdForm.transportsProximity === '3'}
+                                text="Наличие в радиусе 15 мин. доступности крупного транспортного узла - 3 балла  "
+                            />
+                            <Radio
+                                id="transportsProximity4"
+                                name="transportsProximity"
+                                value="4"
+                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                    setThirdForm(prevState => ({
+                                        ...prevState,
+                                        transportsProximity: event.target.value
+                                    }))
+                                }}
+                                checked={thirdForm.transportsProximity === '4'}
+                                text="Наличие в радиусе 5 мин. доступности остановок метро или трамвая - 4 балла "
+                            />
+                            <Radio
+                                id="transportsProximity5"
+                                name="transportsProximity"
+                                value="5"
+                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                    setThirdForm(prevState => ({
+                                        ...prevState,
+                                        transportsProximity: event.target.value
+                                    }))
+                                }}
+                                checked={thirdForm.transportsProximity === '5'}
+                                text="Не менее 10 маршрутов общественного транспорта (разного вида) в радиусе 5 минут - 5 баллов"
+                            />
+                        </div>
+                    </div>
+                    <div className={cls.formLine}>
+                        <HTag
+                            tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                            className={cls.formTitle}
+                        >
                             Транспортная доступность - оснащенность парковками
                         </HTag>
                         <div className={cls.radioWrapper}>
@@ -977,237 +1069,6 @@ export const MainPage = () => {
                                 }}
                                 checked={thirdForm.transportAccessibility === '5'}
                                 text="Обеспеченность достаточным количеством парковочных мест в непосредственной близости от объекта (на территории)  - 5 баллов"
-                            />
-                        </div>
-                    </div>
-                    <div className={cls.formLine}>
-                        <div className={cls.titleWrapper}>
-                            <HTag
-                                tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                                className={cls.formTitle}
-                            >
-                                Близость к спортивным объектам
-                            </HTag>
-                            <PTag>
-                                (фитнес-центры, бассейны, корты, ворк-ауты)
-                            </PTag>
-                        </div>
-
-                        <div className={cls.radioWrapper}>
-                            <Radio
-                                id="sportsProximity1"
-                                name="sportsProximity"
-                                value="1"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setThirdForm(prevState => ({
-                                        ...prevState,
-                                        sportsProximity: event.target.value
-                                    }))
-                                }}
-                                checked={thirdForm.sportsProximity === '1'}
-                                text="Отсутствие обеспеченности спортивными объектами в соответствии с РНГП/МНГП - 1 балл"
-                            />
-                            <Radio
-                                id="sportsProximity2"
-                                name="sportsProximity"
-                                value="2"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setThirdForm(prevState => ({
-                                        ...prevState,
-                                        sportsProximity: event.target.value
-                                    }))
-                                }}
-                                checked={thirdForm.sportsProximity === '2'}
-                                text="Обеспеченность спортивными объектами в соответствии с РНГП/МНГП - 2 балла "
-                            />
-                            <Radio
-                                id="sportsProximity3"
-                                name="sportsProximity"
-                                value="3"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setThirdForm(prevState => ({
-                                        ...prevState,
-                                        sportsProximity: event.target.value
-                                    }))
-                                }}
-                                checked={thirdForm.sportsProximity === '3'}
-                                text="Наличие в радиусе 15 мин. пешеходной доступности спортивных обьектов местного/локального значения (спортзалы, спортплощадки) - 3 балла"
-                            />
-                            <Radio
-                                id="sportsProximity4"
-                                name="sportsProximity"
-                                value="4"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setThirdForm(prevState => ({
-                                        ...prevState,
-                                        sportsProximity: event.target.value
-                                    }))
-                                }}
-                                checked={thirdForm.sportsProximity === '4'}
-                                text="Наличие в радиусе 15 мин. пешеходной доступности спортивных обьектов районного значения (стадионы, воркауты, корты) 4 балла"
-                            />
-                            <Radio
-                                id="sportsProximity5"
-                                name="sportsProximity"
-                                value="5"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setThirdForm(prevState => ({
-                                        ...prevState,
-                                        sportsProximity: event.target.value
-                                    }))
-                                }}
-                                checked={thirdForm.sportsProximity === '5'}
-                                text="Наличие в радиусе 15 мин. пешеходной доступности спортивных обьектов общегородского значения МФСК, ДЮСШ, Универсальные спортивно-зрелищные залы, ледовые арены, бассейны, экстримпарки - 5 баллов"
-                            />
-                        </div>
-                    </div>
-                    <div className={cls.formLine}>
-                        <HTag
-                            tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}
-                        >
-                            Близость к магазинам, торговым центрам
-                        </HTag>
-                        <div className={cls.radioWrapper}>
-                            <Radio
-                                id="storesProximity1"
-                                name="storesProximity"
-                                value="1"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setThirdForm(prevState => ({
-                                        ...prevState,
-                                        storesProximity: event.target.value
-                                    }))
-                                }}
-                                checked={thirdForm.storesProximity === '1'}
-                                text="Наличие в радиусе 300м пешеходной доступности магазинов для МНГ - 1 балл "
-                            />
-                            <Radio
-                                id="storesProximity2"
-                                name="storesProximity"
-                                value="2"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setThirdForm(prevState => ({
-                                        ...prevState,
-                                        storesProximity: event.target.value
-                                    }))
-                                }}
-                                checked={thirdForm.storesProximity === '2'}
-                                text="Наличие в радиусе 15 мин. пешеходной доступности предприятий общественного питания - 2 балла"
-                            />
-                            <Radio
-                                id="storesProximity3"
-                                name="storesProximity"
-                                value="3"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setThirdForm(prevState => ({
-                                        ...prevState,
-                                        storesProximity: event.target.value
-                                    }))
-                                }}
-                                checked={thirdForm.storesProximity === '3'}
-                                text="Наличие в радиусе 15 мин. пешеходной доступности не менее 10 магазинов диффернцированных по назначению, в т.ч. аптек - 3 балла"
-                            />
-                            <Radio
-                                id="storesProximity4"
-                                name="storesProximity"
-                                value="4"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setThirdForm(prevState => ({
-                                        ...prevState,
-                                        storesProximity: event.target.value
-                                    }))
-                                }}
-                                checked={thirdForm.storesProximity === '4'}
-                                text="Наличие в радиусе 15 мин. пешеходной доступности не менее 20 магазинов диффернцированных по назначению - 4 балла"
-                            />
-                            <Radio
-                                id="storesProximity5"
-                                name="storesProximity"
-                                value="5"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setThirdForm(prevState => ({
-                                        ...prevState,
-                                        storesProximity: event.target.value
-                                    }))
-                                }}
-                                checked={thirdForm.storesProximity === '5'}
-                                text="Наличие в радиусе 15 мин. пешеходной доступности торговых центров, рынков общегородского значения - 5 баллов"
-                            />
-                        </div>
-                    </div>
-                    <div className={cls.formLine}>
-                        <HTag
-                            tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}
-                        >
-                            Озеленение / благоустройство
-                        </HTag>
-                        <div className={cls.radioWrapper}>
-                            <Radio
-                                id="improvement1"
-                                name="improvement"
-                                value="1"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setThirdForm(prevState => ({
-                                        ...prevState,
-                                        improvement: event.target.value
-                                    }))
-                                }}
-                                checked={thirdForm.improvement === '1'}
-                                text="В радиусе 15 мин. доступности нет благоустренных открытых общественных пространств - 1 балл"
-                            />
-                            <Radio
-                                id="improvement2"
-                                name="improvement"
-                                value="2"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setThirdForm(prevState => ({
-                                        ...prevState,
-                                        improvement: event.target.value
-                                    }))
-                                }}
-                                checked={thirdForm.improvement === '2'}
-                                text="В радиусе 15 мин. доступности есть бульвар/зеленая зона - 2 балла "
-                            />
-                            <Radio
-                                id="improvement3"
-                                name="improvement"
-                                value="3"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setThirdForm(prevState => ({
-                                        ...prevState,
-                                        improvement: event.target.value
-                                    }))
-                                }}
-                                checked={thirdForm.improvement === '3'}
-                                text="В радиусе 15 мин. доступности есть местный парк/бульвар - 3 балла"
-                            />
-                            <Radio
-                                id="improvement4"
-                                name="improvement"
-                                value="4"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setThirdForm(prevState => ({
-                                        ...prevState,
-                                        improvement: event.target.value
-                                    }))
-                                }}
-                                checked={thirdForm.improvement === '4'}
-                                text="В радиусе 15 мин. доступности есть парк/сквер/пешеходная улица - 4 балла"
-                            />
-                            <Radio
-                                id="improvement5"
-                                name="improvement"
-                                value="5"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setThirdForm(prevState => ({
-                                        ...prevState,
-                                        improvement: event.target.value
-                                    }))
-                                }}
-                                checked={thirdForm.improvement === '5'}
-                                text="В радиусе 15 мин. доступности есть благоустроенные парк/сквер/набережная/площадь - 5 баллов"
                             />
                         </div>
                     </div>
@@ -1362,87 +1223,172 @@ export const MainPage = () => {
                         </div>
                     </div>
                     <div className={cls.formLine}>
-                        <HTag
-                            tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}
-                        >
-                            Транспортная доступность - общественный транспорт
-                        </HTag>
+                        <div className={cls.titleWrapper}>
+                            <HTag
+                                tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                                className={cls.formTitle}
+                            >
+                                Близость к спортивным объектам
+                            </HTag>
+                            <PTag>
+                                фитнес-центры, бассейны, корты, ворк-ауты
+                            </PTag>
+                        </div>
+
                         <div className={cls.radioWrapper}>
                             <Radio
-                                id="transportsProximity"
-                                name="transportsProximity"
+                                id="sportsProximity1"
+                                name="sportsProximity"
                                 value="1"
                                 onChange={(event: ChangeEvent<HTMLInputElement>) => {
                                     setThirdForm(prevState => ({
                                         ...prevState,
-                                        transportsProximity: event.target.value
+                                        sportsProximity: event.target.value
                                     }))
                                 }}
-                                checked={thirdForm.transportsProximity === '1'}
-                                text="Наличие остановки общественного транспорта в радиусе 15 минут - 1 балл"
+                                checked={thirdForm.sportsProximity === '1'}
+                                text="Отсутствие обеспеченности спортивными объектами в соответствии с РНГП/МНГП - 1 балл"
                             />
                             <Radio
-                                id="transportsProximity2"
-                                name="transportsProximity"
+                                id="sportsProximity2"
+                                name="sportsProximity"
                                 value="2"
                                 onChange={(event: ChangeEvent<HTMLInputElement>) => {
                                     setThirdForm(prevState => ({
                                         ...prevState,
-                                        transportsProximity: event.target.value
+                                        sportsProximity: event.target.value
                                     }))
                                 }}
-                                checked={thirdForm.transportsProximity === '2'}
-                                text="Наличие остановки общественного транспорта в радиусе 5 минут - 2 балла "
+                                checked={thirdForm.sportsProximity === '2'}
+                                text="Обеспеченность спортивными объектами в соответствии с РНГП/МНГП - 2 балла "
                             />
                             <Radio
-                                id="transportsProximity3"
-                                name="transportsProximity"
+                                id="sportsProximity3"
+                                name="sportsProximity"
                                 value="3"
                                 onChange={(event: ChangeEvent<HTMLInputElement>) => {
                                     setThirdForm(prevState => ({
                                         ...prevState,
-                                        transportsProximity: event.target.value
+                                        sportsProximity: event.target.value
                                     }))
                                 }}
-                                checked={thirdForm.transportsProximity === '3'}
-                                text="Наличие в радиусе 15 мин. доступности крупного транспортного узла - 3 балла  "
+                                checked={thirdForm.sportsProximity === '3'}
+                                text="Наличие в радиусе 15 мин. пешеходной доступности спортивных обьектов местного/локального значения (спортзалы, спортплощадки) - 3 балла"
                             />
                             <Radio
-                                id="transportsProximity4"
-                                name="transportsProximity"
+                                id="sportsProximity4"
+                                name="sportsProximity"
                                 value="4"
                                 onChange={(event: ChangeEvent<HTMLInputElement>) => {
                                     setThirdForm(prevState => ({
                                         ...prevState,
-                                        transportsProximity: event.target.value
+                                        sportsProximity: event.target.value
                                     }))
                                 }}
-                                checked={thirdForm.transportsProximity === '4'}
-                                text="Наличие в радиусе 5 мин. доступности остановок метро или трамвая - 4 балла "
+                                checked={thirdForm.sportsProximity === '4'}
+                                text="Наличие в радиусе 15 мин. пешеходной доступности спортивных обьектов районного значения (стадионы, воркауты, корты) 4 балла"
                             />
                             <Radio
-                                id="transportsProximity5"
-                                name="transportsProximity"
+                                id="sportsProximity5"
+                                name="sportsProximity"
                                 value="5"
                                 onChange={(event: ChangeEvent<HTMLInputElement>) => {
                                     setThirdForm(prevState => ({
                                         ...prevState,
-                                        transportsProximity: event.target.value
+                                        sportsProximity: event.target.value
                                     }))
                                 }}
-                                checked={thirdForm.transportsProximity === '5'}
-                                text="Не менее 10 маршрутов общественного транспорта (разного вида) в радиусе 5 минут - 5 баллов"
+                                checked={thirdForm.sportsProximity === '5'}
+                                text="Наличие в радиусе 15 мин. пешеходной доступности спортивных обьектов общегородского значения МФСК, ДЮСШ, Универсальные спортивно-зрелищные залы, ледовые арены, бассейны, экстримпарки - 5 баллов"
                             />
                         </div>
                     </div>
                     <div className={cls.formLine}>
                         <HTag
                             tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}>
+                            className={cls.formTitle}
+                        >
+                            Близость к магазинам, торговым центрам
+                        </HTag>
+                        <div className={cls.radioWrapper}>
+                            <Radio
+                                id="storesProximity1"
+                                name="storesProximity"
+                                value="1"
+                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                    setThirdForm(prevState => ({
+                                        ...prevState,
+                                        storesProximity: event.target.value
+                                    }))
+                                }}
+                                checked={thirdForm.storesProximity === '1'}
+                                text="Наличие в радиусе 300м пешеходной доступности магазинов для МНГ - 1 балл "
+                            />
+                            <Radio
+                                id="storesProximity2"
+                                name="storesProximity"
+                                value="2"
+                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                    setThirdForm(prevState => ({
+                                        ...prevState,
+                                        storesProximity: event.target.value
+                                    }))
+                                }}
+                                checked={thirdForm.storesProximity === '2'}
+                                text="Наличие в радиусе 15 мин. пешеходной доступности предприятий общественного питания - 2 балла"
+                            />
+                            <Radio
+                                id="storesProximity3"
+                                name="storesProximity"
+                                value="3"
+                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                    setThirdForm(prevState => ({
+                                        ...prevState,
+                                        storesProximity: event.target.value
+                                    }))
+                                }}
+                                checked={thirdForm.storesProximity === '3'}
+                                text="Наличие в радиусе 15 мин. пешеходной доступности не менее 10 магазинов диффернцированных по назначению, в т.ч. аптек - 3 балла"
+                            />
+                            <Radio
+                                id="storesProximity4"
+                                name="storesProximity"
+                                value="4"
+                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                    setThirdForm(prevState => ({
+                                        ...prevState,
+                                        storesProximity: event.target.value
+                                    }))
+                                }}
+                                checked={thirdForm.storesProximity === '4'}
+                                text="Наличие в радиусе 15 мин. пешеходной доступности не менее 20 магазинов диффернцированных по назначению - 4 балла"
+                            />
+                            <Radio
+                                id="storesProximity5"
+                                name="storesProximity"
+                                value="5"
+                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                    setThirdForm(prevState => ({
+                                        ...prevState,
+                                        storesProximity: event.target.value
+                                    }))
+                                }}
+                                checked={thirdForm.storesProximity === '5'}
+                                text="Наличие в радиусе 15 мин. пешеходной доступности торговых центров, рынков общегородского значения - 5 баллов"
+                            />
+                        </div>
+                    </div>
+
+
+
+                    <div className={cls.formLine}>
+                        <HTag
+                            tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                            className={cn(cls.formTitle, cls.fixedWidth)}>
                             Индекс качества городской среды
                         </HTag>
                         <Input
+                            half={true}
                             disabled={true}
                             onChange={(text) => {
                                 setThirdForm((prevState) => ({
@@ -1461,531 +1407,665 @@ export const MainPage = () => {
                         <span className={cls.line}></span>
                     </HTag>
                     <div className={cls.titleSwitch}>
-                        <Switch/>
+                        <Switch value={secondSwitch} onChange={(value) => {
+                            setSecondSwitch(value)
+                        }}/>
                         <PTag>
                             экспертная оценка и ручные корректировки
                         </PTag>
                     </div>
                 </div>
-                <div className={cn(cls.form, cls.formRadio)}>
-                    <HTag className={cn(cls.formTitle, cls.titleTip)}>
-                        ниже выберите один из наиболее подходящих вариантов для оценки территории
-                    </HTag>
-                    <div className={cls.formLine}>
-                        <HTag
-                            tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}>
-                            Вид разрешенного использования
-                        </HTag>
-                        <div className={cls.radioWrapper}>
-                            <Radio
-                                id="businessDevelopment1"
-                                name="businessDevelopment"
-                                value="1"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        businessDevelopment: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.businessDevelopment === '1'}
-                                text="В 15 мин. доступности находится менее 13 продуктовых и менее 16 непродуктовых торговых точек - 0 баллов"
-                            />
-                            <Radio
-                                id="businessDevelopment2"
-                                name="businessDevelopment"
-                                value="2"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        businessDevelopment: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.businessDevelopment === '2'}
-                                text="В 15 мин. доступности находится менее 13 продуктовых или менее 16 непродуктовых торговых точек - 1 балл"
-                            />
-                            <Radio
-                                id="businessDevelopment3"
-                                name="businessDevelopment"
-                                value="3"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        businessDevelopment: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.businessDevelopment === '3'}
-                                text="В 15 мин. доступности находится 13 продуктовых и 16 непродуктовых торговых точек - 2 балла"
-                            />
-                            <Radio
-                                id="businessDevelopment4"
-                                name="businessDevelopment"
-                                value="4"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        businessDevelopment: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.businessDevelopment === '4'}
-                                text="В 15 мин. доступности находится более 13 продуктовых или 16 непродуктовых торговых точек - 3 балла"
-                            />
-                            <Radio
-                                id="businessDevelopment5"
-                                name="businessDevelopment"
-                                value="5"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        businessDevelopment: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.businessDevelopment === '5'}
-                                text="В 15 мин. доступности находится более 13 продуктовых и более 16 непродуктовых торговых точек - 4 балла"
-                            />
-                            <Radio
-                                id="businessDevelopment6"
-                                name="businessDevelopment"
-                                value="5"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        businessDevelopment: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.businessDevelopment === '6'}
-                                text="В 5 мин. доступности находится более 13 продуктовых и более 16 непродуктовых торговых точек - 5 баллов "
-                            />
-                        </div>
-                    </div>
-                    <div className={cls.formLine}>
-                        <HTag
-                            tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}>
-                            Капитализация территории
-                        </HTag>
-                        <div className={cls.radioWrapper}>
-                            <Radio
-                                id="territoryCapitalization1"
-                                name="territoryCapitalization"
-                                value="1"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        territoryCapitalization: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.territoryCapitalization === '1'}
-                                text="Кадастровая стоимость земли ниже средней по городу - 0 баллов "
-                            />
-                            <Radio
-                                id="territoryCapitalization2"
-                                name="territoryCapitalization"
-                                value="2"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        territoryCapitalization: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.territoryCapitalization === '2'}
-                                text="Кадастровая стоимость на 0-5% выше средней по городу - 1 балл "
-                            />
-                            <Radio
-                                id="territoryCapitalization3"
-                                name="territoryCapitalization"
-                                value="3"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        territoryCapitalization: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.territoryCapitalization === '3'}
-                                text="Кадастровая стоимость на 6-10% выше средней по городу - 2 балла "
-                            />
-                            <Radio
-                                id="territoryCapitalization4"
-                                name="territoryCapitalization"
-                                value="4"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        territoryCapitalization: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.territoryCapitalization === '4'}
-                                text="Кадастровая стоимость на 11-20% выше средней по городу - 3 балла"
-                            />
-                            <Radio
-                                id="territoryCapitalization5"
-                                name="territoryCapitalization"
-                                value="5"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        territoryCapitalization: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.territoryCapitalization === '5'}
-                                text="Кадастровая стоимость на 21-30% выше средней по городу - 4 балла"
-                            />
-                            <Radio
-                                id="territoryCapitalization6"
-                                name="territoryCapitalization"
-                                value="5"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        territoryCapitalization: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.territoryCapitalization === '6'}
-                                text="Кадастровая стоимость более чем на 31% выше средней по городу - 5 баллов"
-                            />
-                        </div>
-                    </div>
-                    <div className={cls.formLine}>
-                        <div className={cls.titleWrapper}>
+                {secondSwitch ?
+                    <div className={cls.form}>
+                        <div className={cls.formLine}>
                             <HTag
                                 tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                                className={cls.formTitle}>
-                                Стоимость инфраструктуры для города
+                                className={cn(cls.formTitle, cls.fixedWidth)}>
+                                Развитие локального бизнеса
                             </HTag>
-                            <PTag>
-                                (социальной, транспортной, благоустройство)
-                            </PTag>
+                            <Input
+                                half={true}
+                                disabled
+                                onChange={(text) => {
+                                    setSocialValues((prevState) => ({
+                                        ...prevState,
+                                        business: text
+                                    }))
+                                }} value={
+                                // socialValues.business
+                                "1"
+                            } label={"балл"}/>
                         </div>
-                        <div className={cls.radioWrapper}>
-                            <Radio
-                                id="infrastructureCost1"
-                                name="infrastructureCost"
-                                value="1"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
+
+                        <div className={cls.formLine}>
+                            <HTag
+                                tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                                className={cn(cls.formTitle, cls.fixedWidth)}>
+                                Капитализация территории
+                            </HTag>
+                            <Input
+                                half={true}
+                                disabled
+                                onChange={(text) => {
+                                    setSocialValues((prevState) => ({
                                         ...prevState,
-                                        infrastructureCost: event.target.value
+                                        capital: text
                                     }))
-                                }}
-                                checked={fivethForm.infrastructureCost === '1'}
-                                text="Расходы на создание инфраструктуры не заложены в бюджет - 0 баллов"
-                            />
-                            <Radio
-                                id="infrastructureCost2"
-                                name="infrastructureCost"
-                                value="2"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        infrastructureCost: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.infrastructureCost === '2'}
-                                text="Для реализации проекта городскому бюджету необходимо будет брать кредит - 1 балл"
-                            />
-                            <Radio
-                                id="infrastructureCost3"
-                                name="infrastructureCost"
-                                value="3"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        infrastructureCost: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.infrastructureCost === '3'}
-                                text="Реализация проекта через ГЧП - 4 балла "
-                            />
-                            <Radio
-                                id="infrastructureCost4"
-                                name="infrastructureCost"
-                                value="4"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        infrastructureCost: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.infrastructureCost === '4'}
-                                text="Затраты на городскую инфраструктуру, необходимую для реализации проекта, заложены в бюджет - 4 балла"
-                            />
-                            <Radio
-                                id="infrastructureCost5"
-                                name="infrastructureCost"
-                                value="5"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        infrastructureCost: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.infrastructureCost === '5'}
-                                text="Реализация проекта не требует привлечения бюджетных средств - 5 баллов"
-                            />
+                                }} value={
+                                // socialValues.capital
+                                "4"
+                            } label={"балл"}/>
                         </div>
+
+                        <div className={cls.formLine}>
+                            <HTag
+                                tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                                className={cn(cls.formTitle, cls.fixedWidth)}>
+                                Количество функций на территории
+                            </HTag>
+                            <Input
+                                half={true}
+                                disabled
+                                onChange={(text) => {
+                                    setSocialValues((prevState) => ({
+                                        ...prevState,
+                                        amount: text
+                                    }))
+                                }} value={
+                                // socialValues.amount
+                                "5"
+                            } label={"балл"}/>
+                        </div>
+
+
+                       <div style={{display: "flex", flexDirection: "column", gap: "50px"}}>
+                           <div className={cls.formLine}>
+                               <HTag
+                                   tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                                   className={cn(cls.formTitle, cls.fixedWidth)}>
+                                   Доходы бюджета
+                               </HTag>
+                               <Input
+                                   style={{marginLeft: "40px", opacity: "50%"}}
+                                   half={true}
+                                   disabled
+                                   onChange={(text) => {
+                                       setSocialValues((prevState) => ({
+                                           ...prevState,
+                                           budgetRevenue: text
+                                       }))
+                                   }} value={
+                                   // socialValues.budgetRevenue
+                                   "2"
+                               } label={"балл"}/>
+                           </div>
+
+                           <div className={cls.formLine}>
+                               <HTag
+                                   tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                                   className={cn(cls.formTitle, cls.fixedWidth)}>
+                                   Доходы от туризма </HTag>
+                               <Input
+                                   style={{marginLeft: "15px", opacity: "50%"}}
+                                   half={true}
+                                   onChange={(text) => {
+                                       setSocialValues((prevState) => ({
+                                           ...prevState,
+                                           tourismBudget: text
+                                       }))
+                                   }} value={
+                                   // socialValues.tourismBudget
+                                   "0"
+                               } label={"балл"}/>
+                           </div>
+
+                           <div className={cls.formLine}>
+                               <div className={cls.titleWrapper}>
+                                   <HTag
+                                       tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                                       className={cn(cls.formTitle, cls.fixedWidth)}>
+                                       Стоимость инфраструктуры для города
+                                   </HTag>
+                                   <PTag>
+                                       социальной, транспортной, благоустройство
+                                   </PTag>
+                               </div>
+                               <Input
+                                   style={{marginLeft: "-65px", opacity: "50%"}}
+                                   half={true}
+                                   onChange={(text) => {
+                                       setSocialValues((prevState) => ({
+                                           ...prevState,
+                                           cost: text
+                                       }))
+                                   }} value={
+                                   // socialValues.cost
+                                   "2"
+                               } label={"балл"}/>
+                           </div>
+                       </div>
                     </div>
-                    <div className={cls.formLine}>
-                        <HTag
-                            tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}>
-                            Доходы бюджета
+                    :
+                    <div className={cn(cls.form, cls.formRadio)}>
+                        <HTag className={cn(cls.formTitle, cls.titleTip)} maxWidth={true}>
+                            ниже выберите один из наиболее подходящих вариантов для оценки территории
                         </HTag>
-                        <div className={cls.radioWrapper}>
-                            <Radio
-                                id="budgetRevenues1"
-                                name="budgetRevenues"
-                                value="1"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        budgetRevenues: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.budgetRevenues === '1'}
-                                text="Территория генерирует на 1 га налогов меньше, чем в среднем по городу - 0 баллов"
-                            />
-                            <Radio
-                                id="budgetRevenues2"
-                                name="budgetRevenues"
-                                value="2"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        budgetRevenues: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.budgetRevenues === '2'}
-                                text="Объем генирируемых налогов на 1 га на 0-5% превышает средний показатель по городу - 1 балл"
-                            />
-                            <Radio
-                                id="budgetRevenues3"
-                                name="budgetRevenues"
-                                value="3"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        budgetRevenues: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.budgetRevenues === '3'}
-                                text="Объем генирируемых налогов на 1 га на 6-10% превышает средний показатель по городу - 2 балла"
-                            />
-                            <Radio
-                                id="budgetRevenues4"
-                                name="budgetRevenues"
-                                value="4"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        budgetRevenues: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.budgetRevenues === '4'}
-                                text="Объем генирируемых налогов на 1 га на 11-20% превышает средний показатель по городу - 3 балла "
-                            />
-                            <Radio
-                                id="budgetRevenues5"
-                                name="budgetRevenues"
-                                value="5"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        budgetRevenues: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.budgetRevenues === '5'}
-                                text="Объем генирируемых налогов на 1 га на 21-30% превышает средний показатель по городу - 4 балла "
-                            />
-                            <Radio
-                                id="budgetRevenues6"
-                                name="budgetRevenues"
-                                value="5"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        budgetRevenues: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.budgetRevenues === '6'}
-                                text="Объем генирируемых налогов на 1 га более чем на 31% превышает средний показатель по городу - 5 баллов "
-                            />
+                        <div className={cls.formLine}>
+                            <HTag
+                                tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                                className={cn(cls.formTitle, cls.fixedWidth)}>
+                                Вид разрешенного использования
+                            </HTag>
+                            <div className={cls.radioWrapper}>
+                                <Radio
+                                    id="businessDevelopment1"
+                                    name="businessDevelopment"
+                                    value="1"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            businessDevelopment: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.businessDevelopment === '1'}
+                                    text="В 15 мин. доступности находится менее 13 продуктовых и менее 16 непродуктовых торговых точек - 0 баллов"
+                                />
+                                <Radio
+                                    id="businessDevelopment2"
+                                    name="businessDevelopment"
+                                    value="2"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            businessDevelopment: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.businessDevelopment === '2'}
+                                    text="В 15 мин. доступности находится менее 13 продуктовых или менее 16 непродуктовых торговых точек - 1 балл"
+                                />
+                                <Radio
+                                    id="businessDevelopment3"
+                                    name="businessDevelopment"
+                                    value="3"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            businessDevelopment: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.businessDevelopment === '3'}
+                                    text="В 15 мин. доступности находится 13 продуктовых и 16 непродуктовых торговых точек - 2 балла"
+                                />
+                                <Radio
+                                    id="businessDevelopment4"
+                                    name="businessDevelopment"
+                                    value="4"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            businessDevelopment: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.businessDevelopment === '4'}
+                                    text="В 15 мин. доступности находится более 13 продуктовых или 16 непродуктовых торговых точек - 3 балла"
+                                />
+                                <Radio
+                                    id="businessDevelopment5"
+                                    name="businessDevelopment"
+                                    value="5"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            businessDevelopment: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.businessDevelopment === '5'}
+                                    text="В 15 мин. доступности находится более 13 продуктовых и более 16 непродуктовых торговых точек - 4 балла"
+                                />
+                                <Radio
+                                    id="businessDevelopment6"
+                                    name="businessDevelopment"
+                                    value="5"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            businessDevelopment: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.businessDevelopment === '6'}
+                                    text="В 5 мин. доступности находится более 13 продуктовых и более 16 непродуктовых торговых точек - 5 баллов "
+                                />
+                            </div>
+                        </div>
+                        <div className={cls.formLine}>
+                            <HTag
+                                tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                                className={cn(cls.formTitle, cls.fixedWidth)}>
+                                Капитализация территории
+                            </HTag>
+                            <div className={cls.radioWrapper}>
+                                <Radio
+                                    id="territoryCapitalization1"
+                                    name="territoryCapitalization"
+                                    value="1"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            territoryCapitalization: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.territoryCapitalization === '1'}
+                                    text="Кадастровая стоимость земли ниже средней по городу - 0 баллов "
+                                />
+                                <Radio
+                                    id="territoryCapitalization2"
+                                    name="territoryCapitalization"
+                                    value="2"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            territoryCapitalization: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.territoryCapitalization === '2'}
+                                    text="Кадастровая стоимость на 0-5% выше средней по городу - 1 балл "
+                                />
+                                <Radio
+                                    id="territoryCapitalization3"
+                                    name="territoryCapitalization"
+                                    value="3"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            territoryCapitalization: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.territoryCapitalization === '3'}
+                                    text="Кадастровая стоимость на 6-10% выше средней по городу - 2 балла "
+                                />
+                                <Radio
+                                    id="territoryCapitalization4"
+                                    name="territoryCapitalization"
+                                    value="4"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            territoryCapitalization: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.territoryCapitalization === '4'}
+                                    text="Кадастровая стоимость на 11-20% выше средней по городу - 3 балла"
+                                />
+                                <Radio
+                                    id="territoryCapitalization5"
+                                    name="territoryCapitalization"
+                                    value="5"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            territoryCapitalization: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.territoryCapitalization === '5'}
+                                    text="Кадастровая стоимость на 21-30% выше средней по городу - 4 балла"
+                                />
+                                <Radio
+                                    id="territoryCapitalization6"
+                                    name="territoryCapitalization"
+                                    value="5"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            territoryCapitalization: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.territoryCapitalization === '6'}
+                                    text="Кадастровая стоимость более чем на 31% выше средней по городу - 5 баллов"
+                                />
+                            </div>
+                        </div>
+                        <div className={cls.formLine}>
+                            <div className={cls.titleWrapper}>
+                                <HTag
+                                    tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                                    className={cn(cls.formTitle, cls.fixedWidth)}>
+                                    Стоимость инфраструктуры для города
+                                </HTag>
+                                <PTag>
+                                    социальной, транспортной, благоустройство
+                                </PTag>
+                            </div>
+                            <div className={cls.radioWrapper}>
+                                <Radio
+                                    id="infrastructureCost1"
+                                    name="infrastructureCost"
+                                    value="1"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            infrastructureCost: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.infrastructureCost === '1'}
+                                    text="Расходы на создание инфраструктуры не заложены в бюджет - 0 баллов"
+                                />
+                                <Radio
+                                    id="infrastructureCost2"
+                                    name="infrastructureCost"
+                                    value="2"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            infrastructureCost: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.infrastructureCost === '2'}
+                                    text="Для реализации проекта городскому бюджету необходимо будет брать кредит - 1 балл"
+                                />
+                                <Radio
+                                    id="infrastructureCost3"
+                                    name="infrastructureCost"
+                                    value="3"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            infrastructureCost: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.infrastructureCost === '3'}
+                                    text="Реализация проекта через ГЧП - 4 балла "
+                                />
+                                <Radio
+                                    id="infrastructureCost4"
+                                    name="infrastructureCost"
+                                    value="4"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            infrastructureCost: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.infrastructureCost === '4'}
+                                    text="Затраты на городскую инфраструктуру, необходимую для реализации проекта, заложены в бюджет - 4 балла"
+                                />
+                                <Radio
+                                    id="infrastructureCost5"
+                                    name="infrastructureCost"
+                                    value="5"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            infrastructureCost: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.infrastructureCost === '5'}
+                                    text="Реализация проекта не требует привлечения бюджетных средств - 5 баллов"
+                                />
+                            </div>
+                        </div>
+                        <div className={cls.formLine}>
+                            <HTag
+                                tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                                className={cn(cls.formTitle, cls.fixedWidth)}>
+                                Доходы бюджета
+                            </HTag>
+                            <div style={{marginLeft: "20px"}} className={cls.radioWrapper}>
+                                <Radio
+                                    id="budgetRevenues1"
+                                    name="budgetRevenues"
+                                    value="1"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            budgetRevenues: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.budgetRevenues === '1'}
+                                    text="Территория генерирует на 1 га налогов меньше, чем в среднем по городу - 0 баллов"
+                                />
+                                <Radio
+                                    id="budgetRevenues2"
+                                    name="budgetRevenues"
+                                    value="2"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            budgetRevenues: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.budgetRevenues === '2'}
+                                    text="Объем генирируемых налогов на 1 га на 0-5% превышает средний показатель по городу - 1 балл"
+                                />
+                                <Radio
+                                    id="budgetRevenues3"
+                                    name="budgetRevenues"
+                                    value="3"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            budgetRevenues: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.budgetRevenues === '3'}
+                                    text="Объем генирируемых налогов на 1 га на 6-10% превышает средний показатель по городу - 2 балла"
+                                />
+                                <Radio
+                                    id="budgetRevenues4"
+                                    name="budgetRevenues"
+                                    value="4"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            budgetRevenues: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.budgetRevenues === '4'}
+                                    text="Объем генирируемых налогов на 1 га на 11-20% превышает средний показатель по городу - 3 балла "
+                                />
+                                <Radio
+                                    id="budgetRevenues5"
+                                    name="budgetRevenues"
+                                    value="5"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            budgetRevenues: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.budgetRevenues === '5'}
+                                    text="Объем генирируемых налогов на 1 га на 21-30% превышает средний показатель по городу - 4 балла "
+                                />
+                                <Radio
+                                    id="budgetRevenues6"
+                                    name="budgetRevenues"
+                                    value="5"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            budgetRevenues: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.budgetRevenues === '6'}
+                                    text="Объем генирируемых налогов на 1 га более чем на 31% превышает средний показатель по городу - 5 баллов "
+                                />
+                            </div>
+                        </div>
+                        <div className={cls.formLine}>
+                            <HTag
+                                tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                                className={cn(cls.formTitle, cls.fixedWidth)}>
+                                Доходы от туризма
+                            </HTag>
+                            <div className={cls.radioWrapper}>
+                                <Radio
+                                    id="tourismIncome1"
+                                    name="tourismIncome"
+                                    value="1"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            tourismIncome: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.tourismIncome === '1'}
+                                    text="Отсутствие прироста количества посетителей - 0 баллов "
+                                />
+                                <Radio
+                                    id="tourismIncome2"
+                                    name="tourismIncome"
+                                    value="2"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            tourismIncome: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.tourismIncome === '2'}
+                                    text="Прирост до 10% - 1 балл"
+                                />
+                                <Radio
+                                    id="tourismIncome3"
+                                    name="tourismIncome"
+                                    value="3"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            tourismIncome: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.tourismIncome === '3'}
+                                    text="Прирост от 11 до 30% - 2 балла"
+                                />
+                                <Radio
+                                    id="tourismIncome4"
+                                    name="tourismIncome"
+                                    value="4"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            tourismIncome: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.tourismIncome === '4'}
+                                    text="Прирост от 31 до 70% - 3 балла "
+                                />
+                                <Radio
+                                    id="tourismIncome5"
+                                    name="tourismIncome"
+                                    value="5"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            tourismIncome: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.tourismIncome === '5'}
+                                    text="Прирост от 71 до 100% - 4 балла "
+                                />
+                                <Radio
+                                    id="tourismIncome6"
+                                    name="tourismIncome"
+                                    value="5"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            tourismIncome: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.tourismIncome === '6'}
+                                    text="Прирост более 100% - 5 баллов"
+                                />
+                            </div>
+                        </div>
+                        <div className={cls.formLine}>
+                            <HTag
+                                tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                                className={cn(cls.formTitle, cls.fixedWidth)}>
+                                Количество функций на территории
+                            </HTag>
+                            <div className={cls.radioWrapper}>
+                                <Radio
+                                    id="functionCount1"
+                                    name="functionCount"
+                                    value="1"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            functionCount: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.functionCount === '1'}
+                                    text="Монофункция территории - 0 баллов"
+                                />
+                                <Radio
+                                    id="functionCount2"
+                                    name="functionCount"
+                                    value="2"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            functionCount: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.functionCount === '2'}
+                                    text="2-3 функции - 1 балл"
+                                />
+                                <Radio
+                                    id="functionCount3"
+                                    name="functionCount"
+                                    value="3"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            functionCount: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.functionCount === '3'}
+                                    text="4-5 функций - 2 балла"
+                                />
+                                <Radio
+                                    id="functionCount4"
+                                    name="functionCount"
+                                    value="4"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            functionCount: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.functionCount === '4'}
+                                    text="6-7 функций - 3 балла"
+                                />
+                                <Radio
+                                    id="functionCount5"
+                                    name="functionCount"
+                                    value="5"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            functionCount: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.functionCount === '5'}
+                                    text="8-9 фукнции - 4 балла"
+                                />
+                                <Radio
+                                    id="functionCount6"
+                                    name="functionCount"
+                                    value="5"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            functionCount: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.functionCount === '6'}
+                                    text="Более 9 функций - 5 баллов"
+                                />
+                            </div>
                         </div>
                     </div>
-                    <div className={cls.formLine}>
-                        <HTag
-                            tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}>
-                            Доходы от туризма
-                        </HTag>
-                        <div className={cls.radioWrapper}>
-                            <Radio
-                                id="tourismIncome1"
-                                name="tourismIncome"
-                                value="1"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        tourismIncome: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.tourismIncome === '1'}
-                                text="Отсутствие прироста количества посетителей - 0 баллов "
-                            />
-                            <Radio
-                                id="tourismIncome2"
-                                name="tourismIncome"
-                                value="2"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        tourismIncome: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.tourismIncome === '2'}
-                                text="Прирост до 10% - 1 балл"
-                            />
-                            <Radio
-                                id="tourismIncome3"
-                                name="tourismIncome"
-                                value="3"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        tourismIncome: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.tourismIncome === '3'}
-                                text="Прирост от 11 до 30% - 2 балла"
-                            />
-                            <Radio
-                                id="tourismIncome4"
-                                name="tourismIncome"
-                                value="4"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        tourismIncome: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.tourismIncome === '4'}
-                                text="Прирост от 31 до 70% - 3 балла "
-                            />
-                            <Radio
-                                id="tourismIncome5"
-                                name="tourismIncome"
-                                value="5"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        tourismIncome: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.tourismIncome === '5'}
-                                text="Прирост от 71 до 100% - 4 балла "
-                            />
-                            <Radio
-                                id="tourismIncome6"
-                                name="tourismIncome"
-                                value="5"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        tourismIncome: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.tourismIncome === '6'}
-                                text="Прирост более 100% - 5 баллов"
-                            />
-                        </div>
-                    </div>
-                    <div className={cls.formLine}>
-                        <HTag
-                            tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}>
-                            Количество функций на территории
-                        </HTag>
-                        <div className={cls.radioWrapper}>
-                            <Radio
-                                id="functionCount1"
-                                name="functionCount"
-                                value="1"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        functionCount: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.functionCount === '1'}
-                                text="Монофункция территории - 0 баллов"
-                            />
-                            <Radio
-                                id="functionCount2"
-                                name="functionCount"
-                                value="2"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        functionCount: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.functionCount === '2'}
-                                text="2-3 функции - 1 балл"
-                            />
-                            <Radio
-                                id="functionCount3"
-                                name="functionCount"
-                                value="3"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        functionCount: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.functionCount === '3'}
-                                text="4-5 функций - 2 балла"
-                            />
-                            <Radio
-                                id="functionCount4"
-                                name="functionCount"
-                                value="4"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        functionCount: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.functionCount === '4'}
-                                text="6-7 функций - 3 балла"
-                            />
-                            <Radio
-                                id="functionCount5"
-                                name="functionCount"
-                                value="5"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        functionCount: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.functionCount === '5'}
-                                text="8-9 фукнции - 4 балла"
-                            />
-                            <Radio
-                                id="functionCount6"
-                                name="functionCount"
-                                value="5"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setFivethForm(prevState => ({
-                                        ...prevState,
-                                        functionCount: event.target.value
-                                    }))
-                                }}
-                                checked={fivethForm.functionCount === '6'}
-                                text="Более 9 функций - 5 баллов"
-                            />
-                        </div>
-                    </div>
-                </div>
+                }
             </section>
 
             <section>
@@ -1994,7 +2074,7 @@ export const MainPage = () => {
                         Ментальные ценности
                         <span className={cls.line}></span>
                     </HTag>
-                    <HTag className={cn(cls.formTitle, cls.titleTip)}>
+                    <HTag maxWidth={true} className={cn(cls.formTitle, cls.titleTip)}>
                         ниже подгружены данные на основании Чат-бота «Анкета твоего города»
                     </HTag>
                 </div>
@@ -2002,27 +2082,35 @@ export const MainPage = () => {
                     <div className={cn(cls.formLine, cls.withLinks)}>
                         <HTag
                             tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}>
+                            className={cn(cls.formTitle, cls.fixedWidth)}>
                             всего в голосовании приняло участие
                         </HTag>
-                        <Input onChange={(text) => {
-                            setfourthForm((prevState) => ({
-                                ...prevState,
-                                votes: text
-                            }))
-                        }} value={fourthForm.votes} label={"чел."}/>
+                        <Input
+                            style={{opacity: "50%", marginLeft: "65px"}}
+                            disabled={true}
+                            onChange={(text) => {
+                                setfourthForm((prevState) => ({
+                                    ...prevState,
+                                    votes: text
+                                }))
+                            }}
+                            value={"1320"} label={"чел."}/>
                         <div className={cls.links}>
                             <div className={cls.link}>
                                 <Telegram/>
-                                <PTag className={cls.withBorder}>
-                                    Перейти в чат-бот
-                                </PTag>
+                                <a href="https://t.me/city_mood_bot">
+                                    <PTag className={cls.withBorder}>
+                                        Перейти в чат-бот
+                                    </PTag>
+                                </a>
                             </div>
                             <div className={cls.link}>
                                 <Link/>
-                                <PTag>
-                                    Загрузить подробную статистику опросов
-                                </PTag>
+                                <a href="https://t.me/city_mood_bot">
+                                    <PTag>
+                                        Загрузить подробную статистику опросов
+                                    </PTag>
+                                </a>
                             </div>
 
                         </div>
@@ -2031,16 +2119,19 @@ export const MainPage = () => {
                     <div className={cls.formLine}>
                         <HTag
                             tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}>
+                            className={cn(cls.formTitle, cls.fixedWidth)}>
                             оценка привлекательности города
                         </HTag>
                         <div className={cls.rates}>
-                            <Input onChange={(text) => {
-                                setfourthForm((prevState) => ({
-                                    ...prevState,
-                                    rate: text
-                                }))
-                            }} value={fourthForm.rate} label={"балла"}/>
+                            <Input
+                                half={true}
+                                disabled={true}
+                                onChange={(text) => {
+                                    setfourthForm((prevState) => ({
+                                        ...prevState,
+                                        rate: text
+                                    }))
+                                }} value={"3"} label={"балла"}/>
                             <PTag className={cls.ratesText}>
                                 СРедневзвешенная оценка
                             </PTag>
@@ -2068,16 +2159,19 @@ export const MainPage = () => {
                     <div className={cls.formLine}>
                         <HTag
                             tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}>
+                            className={cn(cls.formTitle, cls.fixedWidth)}>
                             перенос идентичности объекта к субъектности
                         </HTag>
                         <div className={cls.rates}>
-                            <Input onChange={(text) => {
-                                setfourthForm((prevState) => ({
-                                    ...prevState,
-                                    rate: text
-                                }))
-                            }} value={fourthForm.rate} label={"балла"}/>
+                            <Input
+                                half={true}
+                                disabled={true}
+                                onChange={(text) => {
+                                    setfourthForm((prevState) => ({
+                                        ...prevState,
+                                        rate: text
+                                    }))
+                                }} value={"5"} label={"балла"}/>
                             <PTag className={cls.ratesText}>
                                 СРедневзвешенная оценка
                             </PTag>
@@ -2103,16 +2197,19 @@ export const MainPage = () => {
                     <div className={cls.formLine}>
                         <HTag
                             tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}>
+                            className={cn(cls.formTitle, cls.fixedWidth)}>
                             Бренд-идентичность
                         </HTag>
                         <div className={cls.rates}>
-                            <Input onChange={(text) => {
-                                setfourthForm((prevState) => ({
-                                    ...prevState,
-                                    identity: text
-                                }))
-                            }} value={fourthForm.identity} label={"балла"}/>
+                            <Input
+                                half={true}
+                                disabled={true}
+                                onChange={(text) => {
+                                    setfourthForm((prevState) => ({
+                                        ...prevState,
+                                        identity: text
+                                    }))
+                                }} value={"5"} label={"балла"}/>
                             <PTag className={cls.ratesText}>
                                 СРедневзвешенная оценка
                             </PTag>
@@ -2142,16 +2239,19 @@ export const MainPage = () => {
                     <div className={cls.formLine}>
                         <HTag
                             tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}>
+                            className={cn(cls.formTitle, cls.fixedWidth)}>
                             Ассоциативность и субъективная привязанность к территории
                         </HTag>
                         <div className={cls.rates}>
-                            <Input onChange={(text) => {
-                                setfourthForm((prevState) => ({
-                                    ...prevState,
-                                    identity: text
-                                }))
-                            }} value={fourthForm.identity} label={"балла"}/>
+                            <Input
+                                disabled={true}
+                                half={true}
+                                onChange={(text) => {
+                                    setfourthForm((prevState) => ({
+                                        ...prevState,
+                                        identity: text
+                                    }))
+                                }} value={"5"} label={"баллов"}/>
                             <PTag className={cls.ratesText}>
                                 СРедневзвешенная оценка
                             </PTag>
@@ -2183,16 +2283,19 @@ export const MainPage = () => {
                     <div className={cls.formLine}>
                         <HTag
                             tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}>
+                            className={cn(cls.formTitle, cls.fixedWidth)}>
                             Сфера Культуры и Творческий кластер
                         </HTag>
                         <div className={cls.rates}>
-                            <Input onChange={(text) => {
-                                setfourthForm((prevState) => ({
-                                    ...prevState,
-                                    creativity: text
-                                }))
-                            }} value={fourthForm.creativity} label={"балла"}/>
+                            <Input
+                                half={true}
+                                disabled={true}
+                                onChange={(text) => {
+                                    setfourthForm((prevState) => ({
+                                        ...prevState,
+                                        creativity: text
+                                    }))
+                                }} value={"3"} label={"балла"}/>
                             <PTag className={cls.ratesText}>
                                 СРедневзвешенная оценка
                             </PTag>

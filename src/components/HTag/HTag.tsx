@@ -5,15 +5,20 @@ import IIcon from "@/assets/images/i.svg"
 interface IHTagProps extends DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement> {
     children: ReactNode
     tip?: string
+    maxWidth?: boolean
 }
 
-export const HTag = ({tip, className, children, ...props}: IHTagProps) => {
+export const HTag = ({tip, maxWidth, className, children, ...props}: IHTagProps) => {
     const [isOpen, setIsOpen] = useState(false)
     return (
-        <h2
-            {...props}
-            className={cn(className, cls.heading)}>
-            {children}
+        <div className={cn(cls.wrapper, {
+            [cls.maxWidth] : maxWidth
+        })}>
+            <h2
+                {...props}
+                className={cn(className, cls.heading)}>
+                {children}
+            </h2>
             {tip &&
                 <span
                     onMouseEnter={() => {
@@ -26,10 +31,10 @@ export const HTag = ({tip, className, children, ...props}: IHTagProps) => {
                     {isOpen && tip &&
                         <p className={cls.tipText}>{tip}</p>
                     }
-                <IIcon/>
+                    <IIcon/>
             </span>
             }
-        </h2>
+        </div>
     )
 };
 

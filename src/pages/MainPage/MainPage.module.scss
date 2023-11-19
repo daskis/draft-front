@@ -1,5 +1,5 @@
 .wrapper {
-  padding: 0 40px;
+  padding: 0 20px;
 }
 
 .hero {
@@ -7,6 +7,18 @@
   display: flex;
   align-items: center;
   gap: 50px;
+}
+.buttonSlide {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  & button {
+    font-size: 20px;
+    padding: 10px 20px;
+    background-color: var(--gray);
+    color: #fff;
+    border-radius: 10px;
+  }
 }
 
 .titleTip {
@@ -164,6 +176,7 @@
     padding: 10px 20px;
     border-radius: 10px;
     background-color: var(--gray);
+    border: none;
     & a {
       font-weight: 700;
       font-size: 20px;

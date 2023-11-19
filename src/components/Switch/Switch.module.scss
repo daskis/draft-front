@@ -1,0 +1,33 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 80px;
+  height: 24px;
+  padding: 3px;
+  border-radius: 20px;
+  background-color: #eee;
+  transition: 0.3s all ease;
+  position: relative;
+  cursor: pointer;
+}
+.open {
+  justify-content: end;
+  background-color: var(--line);
+}
+
+.dot {
+  transition: 0.3s all ease;
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 4px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.switch {
+  left: auto;
+  right: 5px;
+}

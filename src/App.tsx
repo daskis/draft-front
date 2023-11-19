@@ -5,6 +5,7 @@ import {ChangeEvent, useState} from "react";
 import cn from "classnames";
 import Telegram from "./assets/images/telegram.svg"
 import Link from "./assets/images/link.svg"
+import Switch from "@/components/Switch/Switch.tsx";
 
 function App() {
     const [firstForm, setFirstForm] = useState({
@@ -215,7 +216,6 @@ function App() {
                     </div>
                 </div>
             </section>
-
             <section>
                 <HTag className={cls.title}>
                     Историко-архитектурные ценности
@@ -638,11 +638,15 @@ function App() {
                     </div>
                 </div>
             </section>
-
-
             <section>
                 <HTag className={cls.title}>
                     Градостроительные ценности
+                    <div className={cls.titleSwitch}>
+                        <Switch/>
+                        <PTag>
+                            экспертная оценка и ручные корректировки
+                        </PTag>
+                    </div>
                 </HTag>
                 <span className={cls.line}></span>
                 <div className={cls.form}>
@@ -1265,11 +1269,15 @@ function App() {
                     </div>
                 </div>
             </section>
-
-
             <section>
                 <HTag className={cls.title}>
                     Социально-экономические ценности
+                    <div className={cls.titleSwitch}>
+                        <Switch/>
+                        <PTag>
+                            экспертная оценка и ручные корректировки
+                        </PTag>
+                    </div>
                 </HTag>
                 <span className={cls.line}></span>
                 <div className={cls.form}>
@@ -1787,8 +1795,6 @@ function App() {
                     </div>
                 </div>
             </section>
-
-
             <section>
                 <div className={cls.mentalWrapper}>
                     <HTag className={cls.title}>

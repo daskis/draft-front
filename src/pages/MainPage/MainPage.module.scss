@@ -1,17 +1,18 @@
 .wrapper {
-  padding: 0 20px;
 }
 
 .hero {
-  padding: 80px 80px 160px;
+  padding: 40px 80px 80px;
   display: flex;
   align-items: center;
   gap: 50px;
 }
+
 .buttonSlide {
   display: flex;
   justify-content: center;
   gap: 100px;
+
   & button {
     font-size: 20px;
     padding: 10px 20px;
@@ -37,10 +38,10 @@
 }
 
 .titleWrapper {
-  width: 40%;
+  width: 50%;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 3px;
 
   & h2 {
     width: 100% !important;
@@ -55,11 +56,13 @@
   padding-left: 40px;
   font-size: 34px !important;
   max-width: 70%;
+
   & .titleSwitch {
     display: flex;
     flex-direction: column;
     gap: 5px;
     max-width: 140px;
+
     & p {
       font-size: 13px;
       font-weight: 500;
@@ -77,6 +80,10 @@
 }
 
 .mentalWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 40px;
   & h2 {
     padding-left: 40px;
   }
@@ -84,8 +91,9 @@
 
 .withLinks {
   width: 90% !important;
+
   & h2 {
-    width: 30% !important;
+    width: 25% !important;
   }
 }
 
@@ -117,40 +125,71 @@
     flex-direction: row;
   }
 }
+
+.formRadio {
+  gap: 80px !important;
+}
+
 .thirdForm {
   gap: 40px !important;
+
   & .clarified {
     opacity: 50%;
   }
 }
-.form {
-  padding: 60px 40px 100px;
+
+.lineTitle {
   display: flex;
   flex-direction: column;
-  gap: 60px;
+
+  & span {
+    margin-left: -40px;
+  }
+}
+
+.titleWithSwitch {
+  display: flex;
+  max-width: 70%;
+  justify-content: space-between;
+
+  & .titleSwitch {
+    margin-top: 20px;
+    max-width: 150px;
+
+    & p {
+      font-size: 13px;
+    }
+  }
+}
+
+.form {
+  padding: 30px 40px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 
   &Title {
+    gap: 20px;
+    justify-content: start;
     text-transform: uppercase;
+    max-width: 40%;
   }
 
   &Column {
     width: 80% !important;
     flex-direction: column !important;
     gap: 30px !important;
+
     & p {
       width: 40% !important;
     }
   }
+
   &Line {
     display: flex;
     justify-content: space-between;
     align-items: start;
-    gap: 50px;
-    width: 50%;
-
-    & h2 {
-      width: 45%;
-    }
+    width: 800px;
   }
 
   .rates {
@@ -167,16 +206,19 @@
     }
   }
 }
+
 .result {
   display: flex;
   justify-content: center;
 
   padding: 0 0 50px;
+
   &Button {
     padding: 10px 20px;
     border-radius: 10px;
     background-color: var(--gray);
     border: none;
+
     & a {
       font-weight: 700;
       font-size: 20px;

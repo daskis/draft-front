@@ -1,11 +1,9 @@
 .heading {
+  color: var(--primary);
   display: flex;
   align-items: start;
-  justify-content: space-between;
-  gap: 5px;
   position: relative;
   font-size: 20px;
-
   & .tip {
     position: relative;
     z-index: 1;
@@ -26,7 +24,7 @@
       word-wrap: break-word;
       top: -50px;
       z-index: 2;
-      left: 350px;
+      left: 50px;
       color: var(--primary);
       border-radius: 10px;
       padding: 10px 15px;

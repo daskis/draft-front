@@ -219,11 +219,11 @@ export const MainPage = () => {
             </section>
 
             <section>
-                <HTag className={cls.title}>
+                <HTag className={cn(cls.title, cls.lineTitle)}>
                     Историко-архитектурные ценности
+                    <span className={cls.line}></span>
                 </HTag>
-                <span className={cls.line}></span>
-                <div className={cls.form}>
+                <div className={cn(cls.form, cls.formRadio)}>
                     <div className={cls.formLine}>
                         <div className={cls.titleWrapper}>
                             <HTag
@@ -646,17 +646,19 @@ export const MainPage = () => {
             </section>
 
             <section>
-                <HTag className={cls.title}>
-                    Градостроительные ценности
+                <div className={cls.titleWithSwitch}>
+                    <HTag className={cn(cls.title, cls.lineTitle)}>
+                        Градостроительные ценности
+                        <span className={cls.line}></span>
+                    </HTag>
                     <div className={cls.titleSwitch}>
                         <Switch/>
                         <PTag>
                             автоматическая подгрузка данных из открытых источников
                         </PTag>
                     </div>
-                </HTag>
-                <span className={cls.line}></span>
-                <div className={cls.form}>
+                </div>
+                <div className={cn(cls.form, cls.formRadio)}>
                     <HTag className={cn(cls.formTitle, cls.titleTip)}>
                         ниже выберите один из наиболее подходящих вариантов для оценки территории
                     </HTag>
@@ -964,7 +966,7 @@ export const MainPage = () => {
                             tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
                             className={cls.formTitle}
                         >
-                            Озеленение/благоустройство
+                            Озеленение / благоустройство
                         </HTag>
                         <div className={cls.radioWrapper}>
                             <Radio
@@ -1278,17 +1280,19 @@ export const MainPage = () => {
             </section>
 
             <section>
-                <HTag className={cls.title}>
-                    Социально-экономические ценности
+                <div className={cls.titleWithSwitch}>
+                    <HTag className={cn(cls.title, cls.lineTitle)}>
+                        Социально-экономические ценности
+                        <span className={cls.line}></span>
+                    </HTag>
                     <div className={cls.titleSwitch}>
                         <Switch/>
                         <PTag>
                             экспертная оценка и ручные корректировки
                         </PTag>
                     </div>
-                </HTag>
-                <span className={cls.line}></span>
-                <div className={cls.form}>
+                </div>
+                <div className={cn(cls.form, cls.formRadio)}>
                     <HTag className={cn(cls.formTitle, cls.titleTip)}>
                         ниже выберите один из наиболее подходящих вариантов для оценки территории
                     </HTag>
@@ -1806,10 +1810,10 @@ export const MainPage = () => {
 
             <section>
                 <div className={cls.mentalWrapper}>
-                    <HTag className={cls.title}>
+                    <HTag className={cn(cls.title, cls.lineTitle)}>
                         Ментальные ценности
+                        <span className={cls.line}></span>
                     </HTag>
-                    <span className={cls.line}></span>
                     <HTag className={cn(cls.formTitle, cls.titleTip)}>
                         ниже подгружены данные на основании Чат-бота «Анкета твоего города»
                     </HTag>
@@ -2042,7 +2046,7 @@ export const MainPage = () => {
             <div className={cls.result}>
                 <button className={cls.resultButton}>
                     <RouterLink to="/result">
-                        получить результат
+                        получить сценарий
                     </RouterLink>
                 </button>
             </div>

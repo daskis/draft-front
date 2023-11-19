@@ -23,11 +23,11 @@ export const HTag = ({tip, className, children, ...props}: IHTagProps) => {
                         setIsOpen(false)
                     }}
                     className={cls.tip}>
+                    {isOpen && tip &&
+                        <p className={cls.tipText}>{tip}</p>
+                    }
                 <IIcon/>
             </span>
-            }
-            {isOpen && tip &&
-                <p className={cls.tipText}>{tip}</p>
             }
         </h2>
     )

@@ -1,0 +1,174 @@
+.wrapper {
+  padding: 0 40px;
+}
+
+.hero {
+  padding: 80px 80px 160px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.titleTip {
+  margin-top: 20px;
+  text-transform: uppercase;
+  color: #aaa !important;
+  width: 50%;
+  margin-bottom: -20px;
+}
+
+.radioWrapper {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.titleWrapper {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  & h2 {
+    width: 100% !important;
+  }
+
+  & p {
+    font-weight: 700;
+  }
+}
+
+.title {
+  padding-left: 40px;
+  font-size: 34px !important;
+  max-width: 70%;
+  & .titleSwitch {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-width: 140px;
+    & p {
+      font-size: 13px;
+      font-weight: 500;
+
+    }
+  }
+}
+
+.line {
+  display: block;
+  width: 200px;
+  height: 15px;
+  background-color: var(--line);
+  transform: translateX(-30px);
+}
+
+.mentalWrapper {
+  & h2 {
+    padding-left: 40px;
+  }
+}
+
+.withLinks {
+  width: 90% !important;
+  & h2 {
+    width: 30% !important;
+  }
+}
+
+.links {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+
+  & .link {
+    & svg {
+      min-width: 55px;
+      min-height: 55px;
+    }
+
+    & .withBorder {
+      border-bottom: 3px dashed #aaa;
+    }
+
+    & p {
+      font-weight: 700;
+      padding: 2px 0;
+      max-width: 320px;
+    }
+
+    cursor: pointer;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-direction: row;
+  }
+}
+.thirdForm {
+  gap: 40px !important;
+  & .clarified {
+    opacity: 50%;
+  }
+}
+.form {
+  padding: 60px 40px 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+
+  &Title {
+    text-transform: uppercase;
+  }
+
+  &Column {
+    width: 80% !important;
+    flex-direction: column !important;
+    gap: 30px !important;
+    & p {
+      width: 40% !important;
+    }
+  }
+  &Line {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 50px;
+    width: 50%;
+
+    & h2 {
+      width: 45%;
+    }
+  }
+
+  .rates {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    & .ratesText {
+      padding: 0 10px;
+      text-transform: uppercase;
+      max-width: 50%;
+      font-weight: 700;
+      font-size: 12px;
+    }
+  }
+}
+.result {
+  display: flex;
+  justify-content: center;
+
+  padding: 0 0 50px;
+  &Button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: var(--gray);
+    & a {
+      font-weight: 700;
+      font-size: 20px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+  }
+}

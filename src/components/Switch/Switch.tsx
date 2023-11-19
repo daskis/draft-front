@@ -2,7 +2,7 @@ import cn from "classnames"
 import {useState} from "react";
 import cls from "./Switch.module.scss"
 
-const Switch = () => {
+export const Switch = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
     return (
         <div
@@ -17,4 +17,3 @@ const Switch = () => {
     );
 };
 
-export default Switch;

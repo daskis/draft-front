@@ -72,6 +72,12 @@
     }
   }
 }
+.closeWrapper {
+  width: 50%;
+  & span {
+    right: 80px !important;
+  }
+}
 
 .line {
   display: block;

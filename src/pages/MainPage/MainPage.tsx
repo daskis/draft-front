@@ -361,7 +361,7 @@ export const MainPage = () => {
                             Присутствие рассматриваемой территории в действующих программах
                             социально-экономического развития
                         </HTag>
-                        <div className={cls.radioWrapper}>
+                        <div style={{marginLeft: "-35px"}} className={cls.radioWrapper}>
                             <Radio
                                 id="presence1"
                                 name="presence"
@@ -399,24 +399,417 @@ export const MainPage = () => {
                     <span className={cls.line}></span>
                 </HTag>
                 <div className={cn(cls.form, cls.formRadio)}>
-                    <div className={cls.formLine}>
-                        <div className={cn(cls.titleWrapper, cls.closeWrapper)}>
+                    <HTag className={cn(cls.formTitle, cls.titleTip)} maxWidth={true}>
+                        ниже выберите один из наиболее подходящих вариантов для оценки территории
+                    </HTag>
+                    <div className={cls.withShadow}>
+                        <div className={cls.formLine}>
                             <HTag
                                 tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
                                 className={cn(cls.formTitle, cls.fixedWidth)}>
-                                Культурные коды. Наследие. Истоки, слои непроявленные смыслы
+                                Вид на перспективы исторических улиц
                             </HTag>
-                            <PTag>
-                                оцените экспертно от 1 до 5
-                            </PTag>
+                            <div className={cls.radioWrapper}>
+                                <Radio
+                                    id="perspectiveView1"
+                                    name="perspectiveView"
+                                    value="1"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setSecondForm(prevState => ({
+                                            ...prevState,
+                                            perspectiveView: event.target.value
+                                        }))
+                                    }}
+                                    checked={secondForm.perspectiveView === '1'}
+                                    text="Ценный материальный фонд памятники архитектуры, культуры, истории занимают не менее 50% территории квартала - 5 баллов"
+                                />
+                                <Radio
+                                    id="perspectiveView2"
+                                    name="perspectiveView"
+                                    value="2"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setSecondForm(prevState => ({
+                                            ...prevState,
+                                            perspectiveView: event.target.value
+                                        }))
+                                    }}
+                                    checked={secondForm.perspectiveView === '2'}
+                                    text="Соотношение исторической застройки и компенсационной больше 70/30% - 4 балла"
+                                />
+                                <Radio
+                                    id="perspectiveView3"
+                                    name="perspectiveView"
+                                    value="3"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setSecondForm(prevState => ({
+                                            ...prevState,
+                                            perspectiveView: event.target.value
+                                        }))
+                                    }}
+                                    checked={secondForm.perspectiveView === '3'}
+                                    text="Соотношение исторической застройки и компенсационной меньше 70/30% - 3 балла"
+                                />
+                                <Radio
+                                    id="perspectiveView4"
+                                    name="perspectiveView"
+                                    value="4"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setSecondForm(prevState => ({
+                                            ...prevState,
+                                            perspectiveView: event.target.value
+                                        }))
+                                    }}
+                                    checked={secondForm.perspectiveView === '4'}
+                                    text="Есть сформированный ландшафт/крыш - 2 балла"
+                                />
+                                <Radio
+                                    id="perspectiveView5"
+                                    name="perspectiveView"
+                                    value="5"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setSecondForm(prevState => ({
+                                            ...prevState,
+                                            perspectiveView: event.target.value
+                                        }))
+                                    }}
+                                    checked={secondForm.perspectiveView === '5'}
+                                    text="Положение территории в пределах композиционного влияния одного или нескольких памятников архитектуры- 1 балл"
+                                />
+                            </div>
                         </div>
-                        <Input onChange={(text) => {
-                            setSecondForm((prevState) => ({
-                                ...prevState,
-                                cultureCode: text
-                            }))
-                        }} value={secondForm.cultureCode} label={"балл"}/>
                     </div>
+                    <div className={cls.withShadow}>
+                        <div className={cls.formLine}>
+                            <HTag
+                                tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                                className={cls.formTitle}
+                            >
+                                Пространственные характеристики исторических зданий
+                            </HTag>
+                            <div className={cls.radioWrapper}>
+                                <Radio
+                                    id="characteristics1"
+                                    name="characteristics"
+                                    value="1"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setSecondForm(prevState => ({
+                                            ...prevState,
+                                            characteristics: event.target.value
+                                        }))
+                                    }}
+                                    checked={secondForm.characteristics === '1'}
+                                    text="Процент застроенности линии фронта соответствует требованиям города к АГО (если установлен параметр) - 1 балл"
+                                />
+                                <Radio
+                                    id="characteristics2"
+                                    name="characteristics"
+                                    value="2"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setSecondForm(prevState => ({
+                                            ...prevState,
+                                            characteristics: event.target.value
+                                        }))
+                                    }}
+                                    checked={secondForm.characteristics === '2'}
+                                    text="Процент застроенности линии фронта не менее 50 (соответствие требованиям города к АГО) - 2 баллов"
+                                />
+                                <Radio
+                                    id="characteristics3"
+                                    name="characteristics"
+                                    value="3"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setSecondForm(prevState => ({
+                                            ...prevState,
+                                            characteristics: event.target.value
+                                        }))
+                                    }}
+                                    checked={secondForm.characteristics === '3'}
+                                    text="Существует единая линия застройки (сохранение единой линии) - 3 балла"
+                                />
+                                <Radio
+                                    id="characteristics4"
+                                    name="characteristics"
+                                    value="4"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setSecondForm(prevState => ({
+                                            ...prevState,
+                                            characteristics: event.target.value
+                                        }))
+                                    }}
+                                    checked={secondForm.characteristics === '4'}
+                                    text="Средняя этажность квартала отличается от средней высоты исторической застройки не более чем на 20% - 4 балла"
+                                />
+                                <Radio
+                                    id="characteristics5"
+                                    name="characteristics"
+                                    value="5"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setSecondForm(prevState => ({
+                                            ...prevState,
+                                            characteristics: event.target.value
+                                        }))
+                                    }}
+                                    checked={secondForm.characteristics === '5'}
+                                    text="Средняя этажность квартала соответствует средней высоте исторической застройки - 5 баллов"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div className={cls.withShadow}>
+                        <div className={cls.formLine}>
+                            <div className={cls.titleWrapper}>
+                                <HTag
+                                    tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                                    className={cls.formTitle}
+                                >
+                                    Целостность застройки
+                                </HTag>
+                                <PTag>
+                                    мера единства и неповрежденности объекта и его
+                                    окружения
+                                </PTag>
+                            </div>
+                            <div className={cls.radioWrapper}>
+                                <Radio
+                                    id="integrity1"
+                                    name="integrity"
+                                    value="1"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setSecondForm(prevState => ({
+                                            ...prevState,
+                                            integrity: event.target.value
+                                        }))
+                                    }}
+                                    checked={secondForm.integrity === '1'}
+                                    text="Сохранены объекты благоустройства исторической среды - 1 балл"
+                                />
+                                <Radio
+                                    id="integrity2"
+                                    name="integrity"
+                                    value="2"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setSecondForm(prevState => ({
+                                            ...prevState,
+                                            integrity: event.target.value
+                                        }))
+                                    }}
+                                    checked={secondForm.integrity === '2'}
+                                    text="Наличие объектов не относящихся к ОКН, но имеющих историко-культурную ценность - 2 балла"
+                                />
+                                <Radio
+                                    id="integrity3"
+                                    name="integrity"
+                                    value="3"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setSecondForm(prevState => ({
+                                            ...prevState,
+                                            integrity: event.target.value
+                                        }))
+                                    }}
+                                    checked={secondForm.integrity === '3'}
+                                    text="Отсутствие диссонирующих объектов - 3 балла"
+                                />
+                                <Radio
+                                    id="integrity4"
+                                    name="integrity"
+                                    value="4"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setSecondForm(prevState => ({
+                                            ...prevState,
+                                            integrity: event.target.value
+                                        }))
+                                    }}
+                                    checked={secondForm.integrity === '4'}
+                                    text="Соответствие размера территории размеру территории исторической застройки - 4 балла"
+                                />
+                                <Radio
+                                    id="integrity5"
+                                    name="integrity"
+                                    value="5"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setSecondForm(prevState => ({
+                                            ...prevState,
+                                            integrity: event.target.value
+                                        }))
+                                    }}
+                                    checked={secondForm.integrity === '5'}
+                                    text="Соответствие масштабу исторической застройки - 5 баллов"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div className={cls.withShadow}>
+                        <div className={cls.formLine}>
+                            <div className={cls.titleWrapper}>
+                                <HTag
+                                    tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                                    className={cn(cls.formTitle, cls.fixedWidth)}>
+                                    Подлинность застройки
+                                </HTag>
+                                <PTag>
+                                    способность отличительных характеристик адекватно и
+                                    достоверно
+                                    выражать его ценность, форма и замысел, материалы и вещества, местоположение и
+                                    окружение
+                                </PTag>
+                            </div>
+                            <div className={cls.radioWrapper}>
+                                <Radio
+                                    id="authenticity1"
+                                    name="authenticity"
+                                    value="1"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setSecondForm(prevState => ({
+                                            ...prevState,
+                                            authenticity: event.target.value
+                                        }))
+                                    }}
+                                    checked={secondForm.authenticity === '1'}
+                                    text="Историческая ценность (идея места/легенда/автор) - 1 балл"
+                                />
+                                <Radio
+                                    id="authenticity2"
+                                    name="authenticity"
+                                    value="2"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setSecondForm(prevState => ({
+                                            ...prevState,
+                                            authenticity: event.target.value
+                                        }))
+                                    }}
+                                    checked={secondForm.authenticity === '2'}
+                                    text="Отсутствие подхода/проектов типового проектирования на территории - 2 балла"
+                                />
+                                <Radio
+                                    id="authenticity3"
+                                    name="authenticity"
+                                    value="3"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setSecondForm(prevState => ({
+                                            ...prevState,
+                                            authenticity: event.target.value
+                                        }))
+                                    }}
+                                    checked={secondForm.authenticity === '3'}
+                                    text="Наличие природного/искусственного ландшафта - 3 балла"
+                                />
+                                <Radio
+                                    id="authenticity4"
+                                    name="authenticity"
+                                    value="4"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setSecondForm(prevState => ({
+                                            ...prevState,
+                                            authenticity: event.target.value
+                                        }))
+                                    }}
+                                    checked={secondForm.authenticity === '4'}
+                                    text="Природные поверхности и материалы (или им соответствующие) составляют не менее чем на 50% застройки - 4 балла"
+                                />
+                                <Radio
+                                    id="authenticity5"
+                                    name="authenticity"
+                                    value="5"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setSecondForm(prevState => ({
+                                            ...prevState,
+                                            perspectiveView: event.target.value
+                                        }))
+                                    }}
+                                    checked={secondForm.perspectiveView === '5'}
+                                    text="Единство хронологии застройки (целостность характера той или иной видовой картины, обусловленная ее формированием в определенный исторический период) - 5 баллов"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div className={cls.withShadow}>
+                        <div className={cls.formLine}>
+                            <HTag
+                                tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                                className={cls.formTitle}
+                            >
+                                Архитектурно-планировочные решения
+                            </HTag>
+                            <div className={cls.radioWrapper}>
+                                <Radio
+                                    id="solutions1"
+                                    name="solutions"
+                                    value="1"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setSecondForm(prevState => ({
+                                            ...prevState,
+                                            solutions: event.target.value
+                                        }))
+                                    }}
+                                    checked={secondForm.solutions === '1'}
+                                    text="Колористические решения соответствуют исторической застройке - 1 балл"
+                                />
+                                <Radio
+                                    id="solutions2"
+                                    name="solutions"
+                                    value="2"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setSecondForm(prevState => ({
+                                            ...prevState,
+                                            solutions: event.target.value
+                                        }))
+                                    }}
+                                    checked={secondForm.solutions === '2'}
+                                    text="Размер пространственного конверта по улице отличается более чем на 30% от размера исторической застройки - 2 балла"
+                                />
+                                <Radio
+                                    id="solutions3"
+                                    name="solutions"
+                                    value="3"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setSecondForm(prevState => ({
+                                            ...prevState,
+                                            solutions: event.target.value
+                                        }))
+                                    }}
+                                    checked={secondForm.solutions === '3'}
+                                    text="Размер пространственного конверта по улице соответствует размеру исторической застройки - 3 балла"
+                                />
+                                <Radio
+                                    id="solutions4"
+                                    name="solutions"
+                                    value="4"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setSecondForm(prevState => ({
+                                            ...prevState,
+                                            solutions: event.target.value
+                                        }))
+                                    }}
+                                    checked={secondForm.solutions === '4'}
+                                    text="Размер пространственного конверта отличается не более чем на 20% - 4 балла"
+                                />
+                                <Radio
+                                    id="solutions5"
+                                    name="solutions"
+                                    value="5"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setSecondForm(prevState => ({
+                                            ...prevState,
+                                            solutions: event.target.value
+                                        }))
+                                    }}
+                                    checked={secondForm.solutions === '5'}
+                                    text="Размер пространственного конверта по улице и внутри квартала соответствует размеру исторической застройки - 5 баллов"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
                     <div className={cls.formLine}>
                         <div className={cn(cls.titleWrapper, cls.closeWrapper)}>
                             <HTag
@@ -436,395 +829,23 @@ export const MainPage = () => {
                             }))
                         }} value={secondForm.expressiveness} label={"балл"}/>
                     </div>
-                    <HTag className={cn(cls.formTitle, cls.titleTip)} maxWidth={true}>
-                        ниже выберите один из наиболее подходящих вариантов для оценки территории
-                    </HTag>
                     <div className={cls.formLine}>
-                        <div className={cls.titleWrapper}>
+                        <div className={cn(cls.titleWrapper, cls.closeWrapper)}>
                             <HTag
                                 tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
                                 className={cn(cls.formTitle, cls.fixedWidth)}>
-                                Подлинность застройки
+                                Культурные коды. Наследие. Истоки, слои непроявленные смыслы
                             </HTag>
                             <PTag>
-                                способность отличительных характеристик адекватно и
-                                достоверно
-                                выражать его ценность, форма и замысел, материалы и вещества, местоположение и
-                                окружение
+                                оцените экспертно от 1 до 5
                             </PTag>
                         </div>
-                        <div className={cls.radioWrapper}>
-                            <Radio
-                                id="authenticity1"
-                                name="authenticity"
-                                value="1"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setSecondForm(prevState => ({
-                                        ...prevState,
-                                        authenticity: event.target.value
-                                    }))
-                                }}
-                                checked={secondForm.authenticity === '1'}
-                                text="Историческая ценность (идея места/легенда/автор) - 1 балл"
-                            />
-                            <Radio
-                                id="authenticity2"
-                                name="authenticity"
-                                value="2"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setSecondForm(prevState => ({
-                                        ...prevState,
-                                        authenticity: event.target.value
-                                    }))
-                                }}
-                                checked={secondForm.authenticity === '2'}
-                                text="Отсутствие подхода/проектов типового проектирования на территории - 2 балла"
-                            />
-                            <Radio
-                                id="authenticity3"
-                                name="authenticity"
-                                value="3"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setSecondForm(prevState => ({
-                                        ...prevState,
-                                        authenticity: event.target.value
-                                    }))
-                                }}
-                                checked={secondForm.authenticity === '3'}
-                                text="Наличие природного/искусственного ландшафта - 3 балла"
-                            />
-                            <Radio
-                                id="authenticity4"
-                                name="authenticity"
-                                value="4"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setSecondForm(prevState => ({
-                                        ...prevState,
-                                        authenticity: event.target.value
-                                    }))
-                                }}
-                                checked={secondForm.authenticity === '4'}
-                                text="Природные поверхности и материалы (или им соответствующие) составляют не менее чем на 50% застройки - 4 балла"
-                            />
-                            <Radio
-                                id="authenticity5"
-                                name="authenticity"
-                                value="5"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setSecondForm(prevState => ({
-                                        ...prevState,
-                                        perspectiveView: event.target.value
-                                    }))
-                                }}
-                                checked={secondForm.perspectiveView === '5'}
-                                text="Единство хронологии застройки (целостность характера той или иной видовой картины, обусловленная ее формированием в определенный исторический период) - 5 баллов"
-                            />
-                        </div>
-                    </div>
-                    <div className={cls.formLine}>
-                        <div className={cls.titleWrapper}>
-                            <HTag
-                                tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                                className={cls.formTitle}
-                            >
-                                Целостность застройки
-                            </HTag>
-                            <PTag>
-                                мера единства и неповрежденности объекта и его
-                                окружения
-                            </PTag>
-                        </div>
-                        <div className={cls.radioWrapper}>
-                            <Radio
-                                id="integrity1"
-                                name="integrity"
-                                value="1"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setSecondForm(prevState => ({
-                                        ...prevState,
-                                        integrity: event.target.value
-                                    }))
-                                }}
-                                checked={secondForm.integrity === '1'}
-                                text="Сохранены объекты благоустройства исторической среды - 1 балл"
-                            />
-                            <Radio
-                                id="integrity2"
-                                name="integrity"
-                                value="2"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setSecondForm(prevState => ({
-                                        ...prevState,
-                                        integrity: event.target.value
-                                    }))
-                                }}
-                                checked={secondForm.integrity === '2'}
-                                text="Наличие объектов не относящихся к ОКН, но имеющих историко-культурную ценность - 2 балла"
-                            />
-                            <Radio
-                                id="integrity3"
-                                name="integrity"
-                                value="3"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setSecondForm(prevState => ({
-                                        ...prevState,
-                                        integrity: event.target.value
-                                    }))
-                                }}
-                                checked={secondForm.integrity === '3'}
-                                text="Отсутствие диссонирующих объектов - 3 балла"
-                            />
-                            <Radio
-                                id="integrity4"
-                                name="integrity"
-                                value="4"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setSecondForm(prevState => ({
-                                        ...prevState,
-                                        integrity: event.target.value
-                                    }))
-                                }}
-                                checked={secondForm.integrity === '4'}
-                                text="Соответствие размера территории размеру территории исторической застройки - 4 балла"
-                            />
-                            <Radio
-                                id="integrity5"
-                                name="integrity"
-                                value="5"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setSecondForm(prevState => ({
-                                        ...prevState,
-                                        integrity: event.target.value
-                                    }))
-                                }}
-                                checked={secondForm.integrity === '5'}
-                                text="Соответствие масштабу исторической застройки - 5 баллов"
-                            />
-                        </div>
-                    </div>
-                    <div className={cls.formLine}>
-                        <HTag
-                            tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}
-                        >
-                            Архитектурно-планировочные решения
-                        </HTag>
-                        <div className={cls.radioWrapper}>
-                            <Radio
-                                id="solutions1"
-                                name="solutions"
-                                value="1"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setSecondForm(prevState => ({
-                                        ...prevState,
-                                        solutions: event.target.value
-                                    }))
-                                }}
-                                checked={secondForm.solutions === '1'}
-                                text="Колористические решения соответствуют исторической застройке - 1 балл"
-                            />
-                            <Radio
-                                id="solutions2"
-                                name="solutions"
-                                value="2"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setSecondForm(prevState => ({
-                                        ...prevState,
-                                        solutions: event.target.value
-                                    }))
-                                }}
-                                checked={secondForm.solutions === '2'}
-                                text="Размер пространственного конверта по улице отличается более чем на 30% от размера исторической застройки - 2 балла"
-                            />
-                            <Radio
-                                id="solutions3"
-                                name="solutions"
-                                value="3"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setSecondForm(prevState => ({
-                                        ...prevState,
-                                        solutions: event.target.value
-                                    }))
-                                }}
-                                checked={secondForm.solutions === '3'}
-                                text="Размер пространственного конверта по улице соответствует размеру исторической застройки - 3 балла"
-                            />
-                            <Radio
-                                id="solutions4"
-                                name="solutions"
-                                value="4"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setSecondForm(prevState => ({
-                                        ...prevState,
-                                        solutions: event.target.value
-                                    }))
-                                }}
-                                checked={secondForm.solutions === '4'}
-                                text="Размер пространственного конверта отличается не более чем на 20% - 4 балла"
-                            />
-                            <Radio
-                                id="solutions5"
-                                name="solutions"
-                                value="5"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setSecondForm(prevState => ({
-                                        ...prevState,
-                                        solutions: event.target.value
-                                    }))
-                                }}
-                                checked={secondForm.solutions === '5'}
-                                text="Размер пространственного конверта по улице и внутри квартала соответствует размеру исторической застройки - 5 баллов"
-                            />
-                        </div>
-                    </div>
-                    <div className={cls.formLine}>
-                        <HTag
-                            tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}
-                        >
-                            Пространственные характеристики исторических зданий
-                        </HTag>
-                        <div className={cls.radioWrapper}>
-                            <Radio
-                                id="characteristics1"
-                                name="characteristics"
-                                value="1"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setSecondForm(prevState => ({
-                                        ...prevState,
-                                        characteristics: event.target.value
-                                    }))
-                                }}
-                                checked={secondForm.characteristics === '1'}
-                                text="Процент застроенности линии фронта соответствует требованиям города к АГО (если установлен параметр) - 1 балл"
-                            />
-                            <Radio
-                                id="characteristics2"
-                                name="characteristics"
-                                value="2"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setSecondForm(prevState => ({
-                                        ...prevState,
-                                        characteristics: event.target.value
-                                    }))
-                                }}
-                                checked={secondForm.characteristics === '2'}
-                                text="Процент застроенности линии фронта не менее 50 (соответствие требованиям города к АГО) - 2 баллов"
-                            />
-                            <Radio
-                                id="characteristics3"
-                                name="characteristics"
-                                value="3"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setSecondForm(prevState => ({
-                                        ...prevState,
-                                        characteristics: event.target.value
-                                    }))
-                                }}
-                                checked={secondForm.characteristics === '3'}
-                                text="Существует единая линия застройки (сохранение единой линии) - 3 балла"
-                            />
-                            <Radio
-                                id="characteristics4"
-                                name="characteristics"
-                                value="4"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setSecondForm(prevState => ({
-                                        ...prevState,
-                                        characteristics: event.target.value
-                                    }))
-                                }}
-                                checked={secondForm.characteristics === '4'}
-                                text="Средняя этажность квартала отличается от средней высоты исторической застройки не более чем на 20% - 4 балла"
-                            />
-                            <Radio
-                                id="characteristics5"
-                                name="characteristics"
-                                value="5"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setSecondForm(prevState => ({
-                                        ...prevState,
-                                        characteristics: event.target.value
-                                    }))
-                                }}
-                                checked={secondForm.characteristics === '5'}
-                                text="Средняя этажность квартала соответствует средней высоте исторической застройки - 5 баллов"
-                            />
-                        </div>
-                    </div>
-                    <div className={cls.formLine}>
-                        <HTag
-                            tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cn(cls.formTitle, cls.fixedWidth)}>
-                            Вид на перспективы исторических улиц
-                        </HTag>
-                        <div className={cls.radioWrapper}>
-                            <Radio
-                                id="perspectiveView1"
-                                name="perspectiveView"
-                                value="1"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setSecondForm(prevState => ({
-                                        ...prevState,
-                                        perspectiveView: event.target.value
-                                    }))
-                                }}
-                                checked={secondForm.perspectiveView === '1'}
-                                text="Ценный материальный фонд памятники архитектуры, культуры, истории занимают не менее 50% территории квартала - 5 баллов"
-                            />
-                            <Radio
-                                id="perspectiveView2"
-                                name="perspectiveView"
-                                value="2"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setSecondForm(prevState => ({
-                                        ...prevState,
-                                        perspectiveView: event.target.value
-                                    }))
-                                }}
-                                checked={secondForm.perspectiveView === '2'}
-                                text="Соотношение исторической застройки и компенсационной больше 70/30% - 4 балла"
-                            />
-                            <Radio
-                                id="perspectiveView3"
-                                name="perspectiveView"
-                                value="3"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setSecondForm(prevState => ({
-                                        ...prevState,
-                                        perspectiveView: event.target.value
-                                    }))
-                                }}
-                                checked={secondForm.perspectiveView === '3'}
-                                text="Соотношение исторической застройки и компенсационной меньше 70/30% - 3 балла"
-                            />
-                            <Radio
-                                id="perspectiveView4"
-                                name="perspectiveView"
-                                value="4"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setSecondForm(prevState => ({
-                                        ...prevState,
-                                        perspectiveView: event.target.value
-                                    }))
-                                }}
-                                checked={secondForm.perspectiveView === '4'}
-                                text="Есть сформированный ландшафт/крыш - 2 балла"
-                            />
-                            <Radio
-                                id="perspectiveView5"
-                                name="perspectiveView"
-                                value="5"
-                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                    setSecondForm(prevState => ({
-                                        ...prevState,
-                                        perspectiveView: event.target.value
-                                    }))
-                                }}
-                                checked={secondForm.perspectiveView === '5'}
-                                text="Положение территории в пределах композиционного влияния одного или нескольких памятников архитектуры- 1 балл"
-                            />
-                        </div>
+                        <Input onChange={(text) => {
+                            setSecondForm((prevState) => ({
+                                ...prevState,
+                                cultureCode: text
+                            }))
+                        }} value={secondForm.cultureCode} label={"балл"}/>
                     </div>
                 </div>
             </section>
@@ -1628,7 +1649,7 @@ export const MainPage = () => {
                             <HTag
                                 tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
                                 className={cn(cls.formTitle, cls.fixedWidth)}>
-                                Вид разрешенного использования
+                                Развитие локального бизнеса
                             </HTag>
                             <div className={cls.radioWrapper}>
                                 <Radio
@@ -1799,81 +1820,89 @@ export const MainPage = () => {
                             </div>
                         </div>
                         <div className={cls.formLine}>
-                            <div className={cls.titleWrapper}>
-                                <HTag
-                                    tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                                    className={cn(cls.formTitle, cls.fixedWidth)}>
-                                    Стоимость инфраструктуры для города
-                                </HTag>
-                                <PTag>
-                                    социальной, транспортной, благоустройство
-                                </PTag>
-                            </div>
+                            <HTag
+                                tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                                className={cn(cls.formTitle, cls.fixedWidth)}>
+                                Количество функций на территории
+                            </HTag>
                             <div className={cls.radioWrapper}>
                                 <Radio
-                                    id="infrastructureCost1"
-                                    name="infrastructureCost"
+                                    id="functionCount1"
+                                    name="functionCount"
                                     value="1"
                                     onChange={(event: ChangeEvent<HTMLInputElement>) => {
                                         setFivethForm(prevState => ({
                                             ...prevState,
-                                            infrastructureCost: event.target.value
+                                            functionCount: event.target.value
                                         }))
                                     }}
-                                    checked={fivethForm.infrastructureCost === '1'}
-                                    text="Расходы на создание инфраструктуры не заложены в бюджет - 0 баллов"
+                                    checked={fivethForm.functionCount === '1'}
+                                    text="Монофункция территории - 0 баллов"
                                 />
                                 <Radio
-                                    id="infrastructureCost2"
-                                    name="infrastructureCost"
+                                    id="functionCount2"
+                                    name="functionCount"
                                     value="2"
                                     onChange={(event: ChangeEvent<HTMLInputElement>) => {
                                         setFivethForm(prevState => ({
                                             ...prevState,
-                                            infrastructureCost: event.target.value
+                                            functionCount: event.target.value
                                         }))
                                     }}
-                                    checked={fivethForm.infrastructureCost === '2'}
-                                    text="Для реализации проекта городскому бюджету необходимо будет брать кредит - 1 балл"
+                                    checked={fivethForm.functionCount === '2'}
+                                    text="2-3 функции - 1 балл"
                                 />
                                 <Radio
-                                    id="infrastructureCost3"
-                                    name="infrastructureCost"
+                                    id="functionCount3"
+                                    name="functionCount"
                                     value="3"
                                     onChange={(event: ChangeEvent<HTMLInputElement>) => {
                                         setFivethForm(prevState => ({
                                             ...prevState,
-                                            infrastructureCost: event.target.value
+                                            functionCount: event.target.value
                                         }))
                                     }}
-                                    checked={fivethForm.infrastructureCost === '3'}
-                                    text="Реализация проекта через ГЧП - 4 балла "
+                                    checked={fivethForm.functionCount === '3'}
+                                    text="4-5 функций - 2 балла"
                                 />
                                 <Radio
-                                    id="infrastructureCost4"
-                                    name="infrastructureCost"
+                                    id="functionCount4"
+                                    name="functionCount"
                                     value="4"
                                     onChange={(event: ChangeEvent<HTMLInputElement>) => {
                                         setFivethForm(prevState => ({
                                             ...prevState,
-                                            infrastructureCost: event.target.value
+                                            functionCount: event.target.value
                                         }))
                                     }}
-                                    checked={fivethForm.infrastructureCost === '4'}
-                                    text="Затраты на городскую инфраструктуру, необходимую для реализации проекта, заложены в бюджет - 4 балла"
+                                    checked={fivethForm.functionCount === '4'}
+                                    text="6-7 функций - 3 балла"
                                 />
                                 <Radio
-                                    id="infrastructureCost5"
-                                    name="infrastructureCost"
+                                    id="functionCount5"
+                                    name="functionCount"
                                     value="5"
                                     onChange={(event: ChangeEvent<HTMLInputElement>) => {
                                         setFivethForm(prevState => ({
                                             ...prevState,
-                                            infrastructureCost: event.target.value
+                                            functionCount: event.target.value
                                         }))
                                     }}
-                                    checked={fivethForm.infrastructureCost === '5'}
-                                    text="Реализация проекта не требует привлечения бюджетных средств - 5 баллов"
+                                    checked={fivethForm.functionCount === '5'}
+                                    text="8-9 фукнции - 4 балла"
+                                />
+                                <Radio
+                                    id="functionCount6"
+                                    name="functionCount"
+                                    value="5"
+                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                        setFivethForm(prevState => ({
+                                            ...prevState,
+                                            functionCount: event.target.value
+                                        }))
+                                    }}
+                                    checked={fivethForm.functionCount === '6'}
+                                    text="Более 9 функций - 5 баллов"
                                 />
                             </div>
                         </div>
@@ -2052,89 +2081,81 @@ export const MainPage = () => {
                             </div>
                         </div>
                         <div className={cls.formLine}>
-                            <HTag
-                                tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                                className={cn(cls.formTitle, cls.fixedWidth)}>
-                                Количество функций на территории
-                            </HTag>
+                            <div className={cls.titleWrapper}>
+                                <HTag
+                                    tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                                    className={cn(cls.formTitle, cls.fixedWidth)}>
+                                    Стоимость инфраструктуры для города
+                                </HTag>
+                                <PTag>
+                                    социальной, транспортной, благоустройство
+                                </PTag>
+                            </div>
                             <div className={cls.radioWrapper}>
                                 <Radio
-                                    id="functionCount1"
-                                    name="functionCount"
+                                    id="infrastructureCost1"
+                                    name="infrastructureCost"
                                     value="1"
                                     onChange={(event: ChangeEvent<HTMLInputElement>) => {
                                         setFivethForm(prevState => ({
                                             ...prevState,
-                                            functionCount: event.target.value
+                                            infrastructureCost: event.target.value
                                         }))
                                     }}
-                                    checked={fivethForm.functionCount === '1'}
-                                    text="Монофункция территории - 0 баллов"
+                                    checked={fivethForm.infrastructureCost === '1'}
+                                    text="Расходы на создание инфраструктуры не заложены в бюджет - 0 баллов"
                                 />
                                 <Radio
-                                    id="functionCount2"
-                                    name="functionCount"
+                                    id="infrastructureCost2"
+                                    name="infrastructureCost"
                                     value="2"
                                     onChange={(event: ChangeEvent<HTMLInputElement>) => {
                                         setFivethForm(prevState => ({
                                             ...prevState,
-                                            functionCount: event.target.value
+                                            infrastructureCost: event.target.value
                                         }))
                                     }}
-                                    checked={fivethForm.functionCount === '2'}
-                                    text="2-3 функции - 1 балл"
+                                    checked={fivethForm.infrastructureCost === '2'}
+                                    text="Для реализации проекта городскому бюджету необходимо будет брать кредит - 1 балл"
                                 />
                                 <Radio
-                                    id="functionCount3"
-                                    name="functionCount"
+                                    id="infrastructureCost3"
+                                    name="infrastructureCost"
                                     value="3"
                                     onChange={(event: ChangeEvent<HTMLInputElement>) => {
                                         setFivethForm(prevState => ({
                                             ...prevState,
-                                            functionCount: event.target.value
+                                            infrastructureCost: event.target.value
                                         }))
                                     }}
-                                    checked={fivethForm.functionCount === '3'}
-                                    text="4-5 функций - 2 балла"
+                                    checked={fivethForm.infrastructureCost === '3'}
+                                    text="Реализация проекта через ГЧП - 4 балла "
                                 />
                                 <Radio
-                                    id="functionCount4"
-                                    name="functionCount"
+                                    id="infrastructureCost4"
+                                    name="infrastructureCost"
                                     value="4"
                                     onChange={(event: ChangeEvent<HTMLInputElement>) => {
                                         setFivethForm(prevState => ({
                                             ...prevState,
-                                            functionCount: event.target.value
+                                            infrastructureCost: event.target.value
                                         }))
                                     }}
-                                    checked={fivethForm.functionCount === '4'}
-                                    text="6-7 функций - 3 балла"
+                                    checked={fivethForm.infrastructureCost === '4'}
+                                    text="Затраты на городскую инфраструктуру, необходимую для реализации проекта, заложены в бюджет - 4 балла"
                                 />
                                 <Radio
-                                    id="functionCount5"
-                                    name="functionCount"
+                                    id="infrastructureCost5"
+                                    name="infrastructureCost"
                                     value="5"
                                     onChange={(event: ChangeEvent<HTMLInputElement>) => {
                                         setFivethForm(prevState => ({
                                             ...prevState,
-                                            functionCount: event.target.value
+                                            infrastructureCost: event.target.value
                                         }))
                                     }}
-                                    checked={fivethForm.functionCount === '5'}
-                                    text="8-9 фукнции - 4 балла"
-                                />
-                                <Radio
-                                    id="functionCount6"
-                                    name="functionCount"
-                                    value="5"
-                                    onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                                        setFivethForm(prevState => ({
-                                            ...prevState,
-                                            functionCount: event.target.value
-                                        }))
-                                    }}
-                                    checked={fivethForm.functionCount === '6'}
-                                    text="Более 9 функций - 5 баллов"
+                                    checked={fivethForm.infrastructureCost === '5'}
+                                    text="Реализация проекта не требует привлечения бюджетных средств - 5 баллов"
                                 />
                             </div>
                         </div>
@@ -2160,7 +2181,7 @@ export const MainPage = () => {
                             всего в голосовании приняло участие
                         </HTag>
                         <Input
-                            style={{opacity: "50%", marginLeft: "65px"}}
+                            style={{opacity: "50%", marginLeft: "20px"}}
                             disabled={true}
                             onChange={(text) => {
                                 setfourthForm((prevState) => ({

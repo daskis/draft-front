@@ -121,7 +121,10 @@
             border-bottom: 5px dashed transparent;
             cursor: pointer;
             padding: 0 5px 10px;
-            background-image: none;
+            background-image: url("../../assets/images/border-dark.svg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-position: bottom;
 
             &:hover {
               background-image: url("../../assets/images/border-primary.svg");
@@ -137,12 +140,10 @@
           }
 
           & .first {
-
             transform: rotate(90deg);
           }
 
           & .second {
-            fill: var(--line);
             transform: rotate(-90deg);
           }
         }
@@ -162,6 +163,5 @@
   & h2 {
     font-size: 25px;
     font-family: Montserrat, sans-serif;
-    border-bottom: 5px dashed var(--line);
   }
 }

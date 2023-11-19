@@ -5,7 +5,7 @@ import save from "@/assets/images/save.jpg"
 import Download from "@/assets/images/download.svg"
 import Arrow from "@/assets/images/arrow.svg"
 import {Link} from "react-router-dom";
-
+import Border from "@/assets/images/border-primary.svg"
 export const ResultPage = () => {
     return (
         <main>
@@ -40,7 +40,8 @@ export const ResultPage = () => {
                             ๏ увеличение общественных пространств и зон рекреации
                         </li>
                         <li>
-                            ๏ строительство Доминант не допускается
+                            <span>๏</span>
+                             строительство Доминант не допускается
                         </li>
                         <li>
                             ๏ высота нового строительства не превышает среднюю высоту квартала более, чем на 5 метров.
@@ -65,7 +66,7 @@ export const ResultPage = () => {
                     <div className={cls.links}>
                         <a
                             className={cls.downloadLink}
-                            href={save} download>
+                            href={"../../assets/doc.docx"} download>
                             <Download/>
                             <PTag>
                                 загрузить подробный сценарий
@@ -82,7 +83,6 @@ export const ResultPage = () => {
                             </div>
                             <div className={cls.link}>
                                 <PTag>
-
                                     <Link to="/">
                                         новая оценка
                                     </Link>

@@ -20,12 +20,13 @@
     border-radius: 50%;
     background-color: rgba(0, 0, 0, 0.2);
     &Text {
+      transition: 0.3s all ease;
       position: absolute;
-      max-width: 200px;
+      width: 250px;
       word-wrap: break-word;
       top: -50px;
       z-index: 2;
-      right: -10px;
+      left: 350px;
       color: var(--primary);
       border-radius: 10px;
       padding: 10px 15px;

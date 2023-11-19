@@ -6,7 +6,7 @@
   -webkit-tap-highlight-color: transparent;
   cursor: pointer;
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: 20px;
 }
 
@@ -24,11 +24,11 @@
 
 .customRadio {
   left: -8px;
-  top: 6px;
+  top: 2px;
   cursor: pointer;
   min-width: 25px;
   min-height: 25px;
-  border: 2px solid #9a9a9a;
+  border: 2px solid #000;
   border-radius: 50%;
   display: inline-block;
   position: relative;

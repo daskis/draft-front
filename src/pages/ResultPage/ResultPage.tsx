@@ -5,7 +5,7 @@ import save from "@/assets/images/save.jpg"
 import Download from "@/assets/images/download.svg"
 import Arrow from "@/assets/images/arrow.svg"
 import {Link} from "react-router-dom";
-import Border from "@/assets/images/border-primary.svg"
+import Footer from "@/assets/images/footer.svg";
 export const ResultPage = () => {
     return (
         <main>
@@ -102,7 +102,7 @@ export const ResultPage = () => {
             </section>
             <footer className={cls.footer}>
                 <HTag>
-                    архитекторы.рф
+                    <Footer/>
                 </HTag>
                 <PTag>
                     с любовью и счастьем

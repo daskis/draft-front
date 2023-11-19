@@ -120,10 +120,14 @@
             font-weight: 500;
             border-bottom: 5px dashed transparent;
             cursor: pointer;
-            transition: 0.3s all ease;
+            padding: 0 5px 10px;
+            background-image: none;
+
             &:hover {
               background-image: url("../../assets/images/border-primary.svg");
               background-repeat: no-repeat;
+              background-size: 100%;
+              background-position: bottom;
             }
           }
 

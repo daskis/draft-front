@@ -16,6 +16,10 @@ export const MainPage = () => {
         ratio: "",
         period: "",
         mainFunction: "",
+        secondaryFunction: "",
+        tendention: "",
+        budget: "",
+        presence: ""
     })
     const [secondForm, setSecondForm] = useState({
         cultureCode: "",
@@ -57,16 +61,28 @@ export const MainPage = () => {
 
     const settlementTypeItems = [
         {
-            label: "региональный центр",
+            label: "Город столичного статуса",
             value: "1",
         },
         {
-            label: "городской центр",
+            label: "Центр макрорегиона",
             value: "2",
         },
         {
-            label: "другой центр",
+            label: "Региональный центр",
             value: "3",
+        },
+        {
+            label: "Обособленный город",
+            value: "4",
+        },
+        {
+            label: "Город-спутник",
+            value: "5",
+        },
+        {
+            label: "Поселок/село/деревня",
+            value: "6",
         },
     ]
     const periodItems = [
@@ -89,20 +105,81 @@ export const MainPage = () => {
     ]
     const mainFunctionItems = [
         {
-            label: "промышленный (обработка)",
+            label: "Промышленный (обработка)",
             value: "1",
         },
         {
-            label: "промышленный (обработка)",
+            label: "Добыча ресурсов",
             value: "2",
         },
         {
-            label: "промышленный (обработка)",
+            label: "Торговый",
             value: "3",
         },
         {
-            label: "промышленный (обработка)",
+            label: "Туристско-рекреационный",
             value: "4",
+        },
+        {
+            label: "Наукоград",
+            value: "5",
+        },
+        {
+            label: "Транспортный узел",
+            value: "6",
+        },
+        {
+            label: "Смешанный тип",
+            value: "7",
+        },
+    ]
+
+    const secondaryFunctionItems = [
+        {
+            label: "Промышленный (обработка)",
+            value: "1",
+        },
+        {
+            label: "Добыча ресурсов",
+            value: "2",
+        },
+        {
+            label: "Торговый",
+            value: "3",
+        },
+        {
+            label: "Туристско-рекреационный",
+            value: "4",
+        },
+        {
+            label: "Наукоград",
+            value: "5",
+        },
+        {
+            label: "Транспортный узел",
+            value: "6",
+        },
+    ]
+    const tendentionItems = [
+        {
+            label: "Расширяющийся",
+            value: "1",
+        },
+        {
+            label: "Сжимающийся",
+            value: "2",
+        },
+        {
+            label: "Стабилизирующийся",
+            value: "3",
+        },
+        {
+            label: "Новый населенный пункт",
+            value: "4",
+        },
+        {
+            label: "Агломерационное поглощение соседних населенных пунктов",
+            value: "5",
         },
     ]
     return (
@@ -215,6 +292,88 @@ export const MainPage = () => {
                             }}
                         />
                     </div>
+                    <div className={cls.formLine}>
+                        <HTag
+                            tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                            className={cls.formTitle}>
+                            Дополнительно связываемая функция /-ии
+                        </HTag>
+                        <Select
+                            items={secondaryFunctionItems}
+                            placeholder={secondaryFunctionItems[0]?.label || ''}
+                            onSelect={(value) => {
+                                setFirstForm((prevState) => ({
+                                    ...prevState,
+                                    secondaryFunction: value
+                                }))
+                            }}
+                        />
+                    </div>
+                    <div className={cls.formLine}>
+                        <HTag
+                            tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                            className={cls.formTitle}>
+                            Тенденция пространственного развития населенного пункта </HTag>
+                        <Select
+                            items={tendentionItems}
+                            placeholder={tendentionItems[0]?.label || ''}
+                            onSelect={(value) => {
+                                setFirstForm((prevState) => ({
+                                    ...prevState,
+                                    tendention: value
+                                }))
+                            }}
+                        />
+                    </div>
+                    <div className={cls.formLine}>
+                        <HTag
+                            tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                            className={cls.formTitle}>
+                            Бюджет муниципального образования за прошлый период (общий)
+                        </HTag>
+                        <Input onChange={(text) => {
+                            setFirstForm((prevState) => ({
+                                ...prevState,
+                                budget: text
+                            }))
+                        }} value={firstForm.budget} label={"тыс. руб."}/>
+                    </div>
+                    <div className={cls.formLine}>
+                        <HTag
+                            tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                            className={cls.formTitle}>
+                            Присутствие рассматриваемой территории или сопряженной к ней в действующих программах
+                            социально-экономического развития
+                        </HTag>
+                        <div className={cls.radioWrapper}>
+                            <Radio
+                                id="presence1"
+                                name="presence"
+                                value="1"
+                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                    setFirstForm(prevState => ({
+                                        ...prevState,
+                                        presence: event.target.value
+                                    }))
+                                }}
+                                checked={firstForm.presence === '1'}
+                                text="Да"
+                            />
+                            <Radio
+                                id="presence2"
+                                name="presence"
+                                value="2"
+                                onChange={(event: ChangeEvent<HTMLInputElement>) => {
+                                    setFirstForm(prevState => ({
+                                        ...prevState,
+                                        presence: event.target.value
+                                    }))
+                                }}
+                                checked={firstForm.presence === '2'}
+                                text="Нет"
+                            />
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -252,7 +411,7 @@ export const MainPage = () => {
                                 окружающей среда
                             </HTag>
                             <PTag>
-                                оцените экспетрно от 1 до 5
+                                оцените экспертно от 1 до 5
                             </PTag>
                         </div>
                         <Input onChange={(text) => {
@@ -266,14 +425,19 @@ export const MainPage = () => {
                         ниже выберите один из наиболее подходящих вариантов для оценки территории
                     </HTag>
                     <div className={cls.formLine}>
-                        <HTag
-                            tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}>
-                            Подлинность застройки <br/> (способность отличительных характеристик адекватно и
-                            достоверно
-                            выражать его ценность, форма и замысел, материалы и вещества, местоположение и
-                            окружение)
-                        </HTag>
+                        <div className={cls.titleWrapper}>
+                            <HTag
+                                tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                                className={cls.formTitle}>
+                                Подлинность застройки
+                            </HTag>
+                            <PTag>
+                                (способность отличительных характеристик адекватно и
+                                достоверно
+                                выражать его ценность, форма и замысел, материалы и вещества, местоположение и
+                                окружение)
+                            </PTag>
+                        </div>
                         <div className={cls.radioWrapper}>
                             <Radio
                                 id="authenticity1"
@@ -343,13 +507,18 @@ export const MainPage = () => {
                         </div>
                     </div>
                     <div className={cls.formLine}>
-                        <HTag
-                            tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}
-                        >
-                            Целостность застройки <br/> (мера единства и неповрежденности объекта и его
-                            окружения)
-                        </HTag>
+                        <div className={cls.titleWrapper}>
+                            <HTag
+                                tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                                className={cls.formTitle}
+                            >
+                                Целостность застройки
+                            </HTag>
+                            <PTag>
+                                (мера единства и неповрежденности объекта и его
+                                окружения)
+                            </PTag>
+                        </div>
                         <div className={cls.radioWrapper}>
                             <Radio
                                 id="integrity1"
@@ -812,12 +981,18 @@ export const MainPage = () => {
                         </div>
                     </div>
                     <div className={cls.formLine}>
-                        <HTag
-                            tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}
-                        >
-                            Близость к спортивным объектам (фитнес-центры, бассейны, корты, ворк-ауты)
-                        </HTag>
+                        <div className={cls.titleWrapper}>
+                            <HTag
+                                tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                                className={cls.formTitle}
+                            >
+                                Близость к спортивным объектам
+                            </HTag>
+                            <PTag>
+                                (фитнес-центры, бассейны, корты, ворк-ауты)
+                            </PTag>
+                        </div>
+
                         <div className={cls.radioWrapper}>
                             <Radio
                                 id="sportsProximity1"
@@ -1471,11 +1646,16 @@ export const MainPage = () => {
                         </div>
                     </div>
                     <div className={cls.formLine}>
-                        <HTag
-                            tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cls.formTitle}>
-                            Стоимость инфраструктуры для города (социальной, транспортной, благоустройство)
-                        </HTag>
+                        <div className={cls.titleWrapper}>
+                            <HTag
+                                tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                                className={cls.formTitle}>
+                                Стоимость инфраструктуры для города
+                            </HTag>
+                            <PTag>
+                                (социальной, транспортной, благоустройство)
+                            </PTag>
+                        </div>
                         <div className={cls.radioWrapper}>
                             <Radio
                                 id="infrastructureCost1"

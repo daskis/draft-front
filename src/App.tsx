@@ -3,6 +3,8 @@ import {MainPage, ResultPage} from "@/pages";
 import {useEffect, useState} from "react";
 import cls from "./App.module.scss"
 import preloader from "@/assets/images/preload.gif"
+import {ScrollToTop} from "@/components";
+
 function App() {
     const [isLoaded, setIsLoaded] = useState(false)
     useEffect(() => {
@@ -13,8 +15,18 @@ function App() {
     if (isLoaded) {
         return (
             <Routes>
-                <Route path="/" element={<MainPage/>}/>
-                <Route path="/result" element={<ResultPage/>}/>
+                <Route path="/" element={
+                    <>
+                        <ScrollToTop/>
+                        <MainPage/>
+                    </>
+                }/>
+                <Route path="/result" element={
+                    <>
+                        <ScrollToTop/>
+                        <ResultPage/>
+                    </>
+                }/>
             </Routes>
         )
     } else {

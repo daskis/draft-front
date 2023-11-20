@@ -60,7 +60,7 @@ export const MainPage = () => {
         creativity: ""
     })
     const [firstSwitch, setFirstSwitch] = useState(false)
-    const [secondSwitch, setSecondSwitch] = useState(false)
+    const [secondSwitch, setSecondSwitch] = useState(true)
     const settlementTypeItems = [
         {
             label: "город столичного статуса",

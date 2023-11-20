@@ -59,7 +59,7 @@ export const MainPage = () => {
         associativity: "",
         creativity: ""
     })
-    const [firstSwitch, setFirstSwitch] = useState(true)
+    const [firstSwitch, setFirstSwitch] = useState(false)
     const [secondSwitch, setSecondSwitch] = useState(false)
     const settlementTypeItems = [
         {
@@ -107,31 +107,31 @@ export const MainPage = () => {
     ]
     const mainFunctionItems = [
         {
-            label: "Промышленный (обработка)",
+            label: "промышленный (обработка)",
             value: "1",
         },
         {
-            label: "Добыча ресурсов",
+            label: "добыча ресурсов",
             value: "2",
         },
         {
-            label: "Торговый",
+            label: "торговый",
             value: "3",
         },
         {
-            label: "Туристско-рекреационный",
+            label: "туристско-рекреационный",
             value: "4",
         },
         {
-            label: "Наукоград",
+            label: "наукоград",
             value: "5",
         },
         {
-            label: "Транспортный узел",
+            label: "транспортный узел",
             value: "6",
         },
         {
-            label: "Смешанный тип",
+            label: "смешанный тип",
             value: "7",
         },
     ]
@@ -143,7 +143,7 @@ export const MainPage = () => {
         tourismBudget: "",
         cost: ""
     })
-
+    const [selectedSelect, setSelectedSelect] = useState("1")
 
     const secondaryFunctionItems = [
         {
@@ -219,7 +219,7 @@ export const MainPage = () => {
                         </HTag>
                         <Select
                             items={settlementTypeItems}
-                            placeholder={"Выберите значение"}
+                            placeholder={"выберите значение"}
                             onSelect={(value) => {
                                 setFirstForm((prevState) => ({
                                     ...prevState,
@@ -277,7 +277,7 @@ export const MainPage = () => {
                         </HTag>
                         <Select
                             items={periodItems}
-                            placeholder={"Выберите значение"}
+                            placeholder={"выберите значение"}
                             onSelect={(value) => {
                                 setFirstForm((prevState) => ({
                                     ...prevState,
@@ -294,7 +294,7 @@ export const MainPage = () => {
                         </HTag>
                         <Select
                             items={mainFunctionItems}
-                            placeholder={"Выберите значение"}
+                            placeholder={"выберите значение"}
                             onSelect={(value) => {
                                 setFirstForm((prevState) => ({
                                     ...prevState,
@@ -311,7 +311,7 @@ export const MainPage = () => {
                         </HTag>
                         <Select
                             items={secondaryFunctionItems}
-                            placeholder={"Выберите значение"}
+                            placeholder={"выберите значение"}
                             onSelect={(value) => {
                                 setFirstForm((prevState) => ({
                                     ...prevState,
@@ -327,7 +327,7 @@ export const MainPage = () => {
                             Тенденция пространственного развития населенного пункта </HTag>
                         <Select
                             items={tendentionItems}
-                            placeholder={"Выберите значение"}
+                            placeholder={"выберите значение"}
                             onSelect={(value) => {
                                 setFirstForm((prevState) => ({
                                     ...prevState,
@@ -2207,44 +2207,50 @@ export const MainPage = () => {
                         </div>
                     </div>
 
-                    <div className={cls.formLine}>
-                        <HTag
-                            tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
-                            className={cn(cls.formTitle, cls.fixedWidth)}>
-                            оценка привлекательности города
-                        </HTag>
-                        <div className={cls.rates}>
-                            <Input
-                                half={true}
-                                disabled={true}
-                                onChange={(text) => {
-                                    setfourthForm((prevState) => ({
-                                        ...prevState,
-                                        rate: text
-                                    }))
-                                }} value={"3"} label={"балл"}/>
-                            <PTag className={cls.ratesText}>
-                                СРедневзвешенная оценка
-                            </PTag>
+                    <div className={cls.moreHeight}>
+                        <div className={cls.formLine}>
+                            <HTag
+                                tip={"Экономическая обеспеченность территории считается по формуле: запросы - налоговые поступления х 1,7"}
+                                className={cn(cls.formTitle, cls.fixedWidth)}>
+                                оценка привлекательности города
+                            </HTag>
+                            <div className={cls.rates}>
+                                <Input
+                                    half={true}
+                                    disabled={true}
+                                    onChange={(text) => {
+                                        setfourthForm((prevState) => ({
+                                            ...prevState,
+                                            rate: text
+                                        }))
+                                    }} value={"3"} label={"балл"}/>
+                                <PTag className={cls.ratesText}>
+                                    СРедневзвешенная оценка
+                                </PTag>
+                            </div>
                         </div>
-                    </div>
-                    <div className={cn(cls.formLine, cls.formColumn)}>
-                        <HTag className={cn(cls.formTitle, cls.titleTip)}>Задаваемые Вопросы</HTag>
-                        <PTag>
-                            Как вы оцениваете положение города среди других городов (соседних, близлежащих)?
-                        </PTag>
-                        <PTag>
-                            Считаете ли вы, что данный квартал может быть более важным, ценным для города?
-                        </PTag>
-                    </div>
-                    <div className={cn(cls.formLine, cls.formColumn)}>
-                        <HTag className={cn(cls.formTitle, cls.titleTip)}>
-                            Интерпретация прлученного результата
-                        </HTag>
-                        <PTag className={cls.clarified}>
-                            Самодостаточный город, комфортное проживание, транспортная доступность лёгкая. Люди
-                            переезжают сюда из соседних городов, либо хотят переехать
-                        </PTag>
+                            <div className={cn(cls.formLine, cls.formColumn)}>
+                                <HTag
+                                    style={{marginBottom: "-20px"}}
+                                    className={cn(cls.formTitle, cls.titleTip)}>Задаваемые Вопросы</HTag>
+                                <div className={cls.lessHeight}>
+                                    <PTag>
+                                        Как вы оцениваете положение города среди других городов (соседних, близлежащих)?
+                                    </PTag>
+                                    <PTag>
+                                        Считаете ли вы, что данный квартал может быть более важным, ценным для города?
+                                    </PTag>
+                                </div>
+                            <div className={cn(cls.formLine, cls.formColumn)}>
+                                <HTag className={cn(cls.formTitle, cls.titleTip)}>
+                                    Интерпретация полученного результата
+                                </HTag>
+                                <PTag className={cls.clarified}>
+                                    Самодостаточный город, комфортное проживание, транспортная доступность лёгкая. Люди
+                                    переезжают сюда из соседних городов, либо хотят переехать
+                                </PTag>
+                            </div>
+                        </div>
                     </div>
 
                     <div className={cls.formLine}>
@@ -2278,7 +2284,7 @@ export const MainPage = () => {
                     </div>
                     <div className={cn(cls.formLine, cls.formColumn)}>
                         <HTag className={cn(cls.formTitle, cls.titleTip)}>
-                            Интерпретация прлученного результата
+                            Интерпретация полученного результата
                         </HTag>
                         <PTag className={cls.clarified}>
                             Самодостаточный город, комфортное проживание, транспортная доступность лёгкая. Люди

@@ -144,7 +144,7 @@
 }
 
 .thirdForm {
-  gap: 30px !important;
+  gap: 80px !important;
 
   & .clarified {
     opacity: 50%;
@@ -193,8 +193,11 @@
   &Column {
     width: 80% !important;
     flex-direction: column !important;
-    gap: 30px !important;
+    gap: 10px !important;
 
+    & h2 {
+      margin-bottom: 0px !important;
+    }
     & p {
       width: 40% !important;
     }
@@ -227,8 +230,6 @@
 }
 
 .moreHeight {
-  padding: 30px 0;
-
   & .lessHeight {
     width: 100% !important;
     display: flex;
